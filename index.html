@@ -9,8 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#080D18; --bg2:#0C1322; --panel:#0E1626; --panel2:#111B2E;
-  --ink:#EAF1FB; --soft:#C2CEDE; --muted:#8595AC; --line:#1C2740; --line2:#243353;
+  --bg:#070B14; --bg2:#0D1728; --panel:#131F38; --panel2:#172541;
+  --ink:#EAF1FB; --soft:#C2CEDE; --muted:#8595AC; --line:#223049; --line2:#2E3F63;
   --accent:#2DD4BF; --accent2:#4F8CFF; --grad:linear-gradient(120deg,#2DD4BF,#4F8CFF);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -84,7 +84,10 @@ h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .stat span{display:block;color:var(--muted);font-size:14.5px;margin-top:4px;}
 
 /* SERVICES */
-.alt{background:var(--bg2);}
+.alt{background:radial-gradient(75% 90% at 50% 0%,rgba(79,140,255,.07),transparent 62%),var(--bg2);
+  border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);}
+.alt::before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:240px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.5;}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px 24px;transition:border-color .25s,transform .25s;}
 .card:hover{border-color:var(--line2);transform:translateY(-4px);}
