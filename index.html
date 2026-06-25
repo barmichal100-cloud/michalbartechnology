@@ -28,8 +28,8 @@ a{color:inherit;text-decoration:none;}
 
 /* section scaffolding */
 section{position:relative;padding:104px 0;}
-.eyebrow{display:flex;align-items:center;gap:12px;color:var(--accent);font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:1px;direction:ltr;}
-.eyebrow .idx{color:var(--accent2);}
+.eyebrow{display:flex;align-items:center;gap:11px;font-weight:600;font-size:14px;letter-spacing:.3px;}
+.eyebrow .idx{font-family:var(--mono);color:var(--accent2);font-size:13px;}
 .eyebrow .ttl{color:var(--accent);}
 .eyebrow::after{content:"";flex:1;max-width:90px;height:1px;background:linear-gradient(90deg,var(--line2),transparent);}
 .s-head{font-family:var(--serif);font-size:clamp(32px,5.2vw,54px);font-weight:700;line-height:1.12;letter-spacing:0;margin:18px 0 0;max-width:20ch;}
@@ -52,7 +52,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0
 .brand{display:flex;align-items:center;gap:13px;}
 .logo{width:44px;height:44px;border-radius:13px;background:var(--grad);display:grid;place-items:center;color:#241307;font-weight:700;font-size:19px;font-family:var(--serif);}
 .brand b{font-family:var(--serif);font-weight:700;font-size:19px;display:block;line-height:1.1;}
-.brand small{color:var(--muted);font-size:12px;font-family:var(--mono);letter-spacing:.5px;}
+.brand small{color:var(--muted);font-size:12.5px;letter-spacing:.2px;}
 .nav-links{display:flex;gap:30px;align-items:center;color:var(--soft);font-size:15px;font-weight:500;}
 .nav-links a:hover{color:var(--ink);}
 .nav-cta{border:1px solid var(--line2);color:var(--ink);padding:9px 18px;border-radius:999px;font-weight:600;font-size:14px;}
@@ -64,13 +64,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0
   radial-gradient(56% 48% at 80% 4%,rgba(227,164,92,.16),transparent 60%),
   radial-gradient(46% 40% at 8% 0%,rgba(199,107,69,.14),transparent 60%);pointer-events:none;}
 .hero-in{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:center;min-height:72vh;}
-.pill{display:inline-flex;align-items:center;gap:9px;background:rgba(227,164,92,.10);border:1px solid rgba(227,164,92,.32);
-  color:var(--accent);padding:7px 15px;border-radius:999px;font-size:12.5px;font-weight:500;font-family:var(--mono);direction:ltr;}
-.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);}
+.kicker{display:inline-flex;align-items:center;gap:13px;color:var(--soft);font-size:15.5px;font-weight:600;letter-spacing:.2px;}
+.kicker .kbar{width:36px;height:2px;background:var(--grad);border-radius:2px;display:inline-block;}
+.kicker b{color:var(--accent);font-weight:700;}
 h1{font-family:var(--serif);font-size:clamp(40px,6.4vw,76px);line-height:1.04;font-weight:700;letter-spacing:0;margin:22px 0 0;}
 h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 .hero p.sub{margin-top:22px;color:var(--soft);font-size:clamp(16px,2vw,20px);max-width:48ch;}
-.tagline{margin-top:16px;color:var(--muted);font-size:12.5px;letter-spacing:2px;font-family:var(--mono);direction:ltr;}
+.tagline{margin-top:16px;color:var(--muted);font-size:14.5px;letter-spacing:.5px;}
 .cta-row{display:flex;gap:13px;margin-top:34px;flex-wrap:wrap;}
 .btn1{background:var(--grad);color:#241307;font-weight:700;font-size:16px;padding:15px 30px;border-radius:12px;box-shadow:0 14px 40px -14px rgba(227,164,92,.5);}
 .btn2{border:1px solid var(--line2);color:var(--ink);font-weight:600;font-size:16px;padding:15px 26px;border-radius:12px;}
@@ -123,7 +123,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .portrait span{font-family:var(--mono);font-size:13px;}
 .about-grid p{color:var(--soft);font-size:17.5px;margin-top:16px;}
 .sig{margin-top:24px;font-family:var(--serif);font-weight:700;font-size:20px;}
-.sig small{display:block;color:var(--muted);font-weight:400;font-size:13px;font-family:var(--mono);margin-top:4px;direction:ltr;}
+.sig small{display:block;color:var(--muted);font-weight:400;font-size:13.5px;margin-top:4px;}
 
 /* PROCESS */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:46px;}
@@ -138,7 +138,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .pcard:hover{transform:translateY(-4px);border-color:var(--accent);}
 .pcard .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#2a2032,#1a1422);display:grid;place-items:center;color:var(--muted);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px;}
 .pcard .body{padding:22px 24px;}
-.pcard .tag{display:inline-block;background:rgba(227,164,92,.10);color:var(--accent);font-size:12px;font-weight:500;padding:4px 11px;border-radius:999px;font-family:var(--mono);direction:ltr;}
+.pcard .tag{display:inline-block;background:rgba(227,164,92,.10);color:var(--accent);font-size:12.5px;font-weight:600;padding:4px 12px;border-radius:999px;}
 .pcard h4{font-family:var(--serif);font-size:22px;font-weight:700;margin:12px 0 4px;}
 .pcard p{color:var(--muted);font-size:14.5px;}
 
@@ -149,7 +149,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .quote p{color:var(--soft);font-size:16px;margin:12px 0 18px;line-height:1.7;}
 .quote .who{display:flex;align-items:center;gap:12px;}
 .quote .av{width:40px;height:40px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#241307;font-weight:700;font-family:var(--serif);}
-.quote .who b{font-size:14.5px;}.quote .who small{display:block;color:var(--muted);font-size:13px;font-family:var(--mono);direction:ltr;}
+.quote .who b{font-size:14.5px;}.quote .who small{display:block;color:var(--muted);font-size:13.5px;}
 
 /* CONTACT */
 .cta{position:relative;text-align:center;border:1px solid var(--line2);border-radius:24px;padding:64px 28px;overflow:hidden;
@@ -210,7 +210,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
     <nav>
       <a class="brand" href="#top">
         <div class="logo">מ</div>
-        <div><b>מיכל בר</b><small>TECH SOLUTIONS</small></div>
+        <div><b>מיכל בר</b><small>פתרונות טכנולוגיים</small></div>
       </a>
       <div class="nav-links" id="navlinks">
         <a href="#services">שירותים</a>
@@ -231,7 +231,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
   <div class="wrap">
     <div class="hero-in">
       <div>
-        <span class="pill"><span class="dot"></span> 20+ YEARS IN HIGH-TECH</span>
+        <div class="kicker"><span class="kbar"></span> <b>20+ שנים</b>&nbsp;של ניסיון בעולם ההייטק</div>
         <h1>
           <span class="ln"><span>טכנולוגיה עם</span></span>
           <span class="rot">
@@ -242,7 +242,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
           </span>
         </h1>
         <p class="sub">ייעוץ, פיתוח ואוטומציה — 20+ שנות ניסיון בהייטק, מתורגמות לכלים פשוטים שעובדים בשבילך.</p>
-        <div class="tagline">Technology · Strategy · Automation</div>
+        <div class="tagline">ייעוץ · פיתוח · אוטומציה</div>
         <div class="cta-row">
           <a class="btn1 magnetic" href="#contact">בואו נדבר →</a>
           <a class="btn2 magnetic" href="#services">השירותים שלי</a>
@@ -279,7 +279,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 <section class="alt" id="services">
   <div class="wrap">
     <div class="reveal">
-      <span class="eyebrow"><span class="idx">01</span> <span class="ttl">SERVICES</span></span>
+      <span class="eyebrow"><span class="idx">01</span> <span class="ttl">שירותים</span></span>
       <h2 class="s-head">כל מה שצריך כדי להפוך טכנולוגיה ליתרון</h2>
       <p class="s-lead">משלב אסטרטגיה, פיתוח ואוטומציה — בליווי אישי מההתחלה ועד התוצאה.</p>
     </div>
@@ -311,11 +311,11 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
   <div class="wrap about-grid">
     <div class="portrait reveal"><span>PORTRAIT / תמונה</span></div>
     <div class="reveal">
-      <span class="eyebrow"><span class="idx">02</span> <span class="ttl">ABOUT</span></span>
+      <span class="eyebrow"><span class="idx">02</span> <span class="ttl">אודות</span></span>
       <h2 class="s-head">היי, אני מיכל</h2>
       <p>אחרי 20+ שנים בעולם ההייטק — בפיתוח, ניהול מוצר וטכנולוגיה — אני עוזרת לעסקים וליזמים לתרגם רעיונות ואתגרים לפתרונות טכנולוגיים פשוטים שעובדים.</p>
       <p>אני מאמינה בגישה אישית, בשקיפות מלאה ובלעשות דברים נכון — בלי באזז־וורדס, עם פוקוס על מה שבאמת מקדם אותך.</p>
-      <div class="sig">מיכל בר<small>TECH · STRATEGY · AUTOMATION</small></div>
+      <div class="sig">מיכל בר<small>ייעוץ · פיתוח · אוטומציה</small></div>
     </div>
   </div>
 </section>
@@ -324,7 +324,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 <section class="alt" id="process">
   <div class="wrap">
     <div class="reveal">
-      <span class="eyebrow"><span class="idx">03</span> <span class="ttl">PROCESS</span></span>
+      <span class="eyebrow"><span class="idx">03</span> <span class="ttl">התהליך</span></span>
       <h2 class="s-head">תהליך פשוט, שקוף, בלי הפתעות</h2>
     </div>
     <div class="steps">
@@ -340,18 +340,18 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 <section id="projects">
   <div class="wrap">
     <div class="reveal">
-      <span class="eyebrow"><span class="idx">04</span> <span class="ttl">WORK</span></span>
+      <span class="eyebrow"><span class="idx">04</span> <span class="ttl">עבודות</span></span>
       <h2 class="s-head">עבודות נבחרות</h2>
       <p class="s-lead">דוגמאות לפתרונות שבניתי מקצה לקצה.</p>
     </div>
     <div class="proj">
       <a class="pcard reveal" href="https://makombateva.com" target="_blank">
         <div class="thumb">makombateva.com</div>
-        <div class="body"><span class="tag">WEB · DESIGN · DEV</span><h4>מקום בטבע</h4><p>אתר תדמית ונחיתה לאירוח אירועים — עיצוב, פיתוח, גלריה ועמוד מדריך מאובטח.</p></div>
+        <div class="body"><span class="tag">אתר · עיצוב · פיתוח</span><h4>מקום בטבע</h4><p>אתר תדמית ונחיתה לאירוח אירועים — עיצוב, פיתוח, גלריה ועמוד מדריך מאובטח.</p></div>
       </a>
       <a class="pcard reveal" href="#">
-        <div class="thumb">coming soon</div>
-        <div class="body"><span class="tag">AUTOMATION</span><h4>פרויקט לדוגמה</h4><p>מקום לפרויקט נוסף — נמלא יחד עם תיאור ותוצאות.</p></div>
+        <div class="thumb">בקרוב</div>
+        <div class="body"><span class="tag">אוטומציה</span><h4>פרויקט לדוגמה</h4><p>מקום לפרויקט נוסף — נמלא יחד עם תיאור ותוצאות.</p></div>
       </a>
     </div>
   </div>
@@ -361,13 +361,13 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 <section class="alt" id="testimonials">
   <div class="wrap">
     <div class="reveal">
-      <span class="eyebrow"><span class="idx">05</span> <span class="ttl">WORDS</span></span>
+      <span class="eyebrow"><span class="idx">05</span> <span class="ttl">המלצות</span></span>
       <h2 class="s-head">מה אומרים עליי</h2>
     </div>
     <div class="quotes">
-      <div class="quote reveal"><div class="stars">★★★★★</div><p>"מיכל הבינה בדיוק מה היה חסר לנו ובנתה פתרון שחסך לנו שעות עבודה בכל שבוע."</p><div class="who"><div class="av">א</div><div><b>שם הממליץ</b><small>ROLE · COMPANY</small></div></div></div>
-      <div class="quote reveal"><div class="stars">★★★★★</div><p>"מקצועית, אישית וזמינה. קיבלנו אתר מהמם ותהליך נעים מההתחלה ועד הסוף."</p><div class="who"><div class="av">ב</div><div><b>שם הממליץ</b><small>ROLE · COMPANY</small></div></div></div>
-      <div class="quote reveal"><div class="stars">★★★★★</div><p>"היכולת לחבר בין הבנה עסקית לטכנולוגיה היא נדירה — בדיוק מה שחיפשנו."</p><div class="who"><div class="av">ג</div><div><b>שם הממליץ</b><small>ROLE · COMPANY</small></div></div></div>
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>"מיכל הבינה בדיוק מה היה חסר לנו ובנתה פתרון שחסך לנו שעות עבודה בכל שבוע."</p><div class="who"><div class="av">א</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>"מקצועית, אישית וזמינה. קיבלנו אתר מהמם ותהליך נעים מההתחלה ועד הסוף."</p><div class="who"><div class="av">ב</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>"היכולת לחבר בין הבנה עסקית לטכנולוגיה היא נדירה — בדיוק מה שחיפשנו."</p><div class="who"><div class="av">ג</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
     </div>
   </div>
 </section>
@@ -376,7 +376,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 <section id="contact">
   <div class="wrap">
     <div class="cta reveal">
-      <span class="eyebrow" style="justify-content:center;"><span class="idx">06</span> <span class="ttl">CONTACT</span></span>
+      <span class="eyebrow" style="justify-content:center;"><span class="idx">06</span> <span class="ttl">צרו קשר</span></span>
       <h2>יש לכם אתגר טכנולוגי?<br>בואו נדבר.</h2>
       <p>שיחת היכרות ראשונית — ללא התחייבות.</p>
       <div class="cta-row">
@@ -392,12 +392,12 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
   <div class="wrap foot">
     <div class="brand">
       <div class="logo">מ</div>
-      <div><b>מיכל בר</b><small>TECH SOLUTIONS</small></div>
+      <div><b>מיכל בר</b><small>פתרונות טכנולוגיים</small></div>
     </div>
     <div>© <span class="mono">2026</span> מיכל בר · כל הזכויות שמורות</div>
     <div class="fsoc">
       <a href="https://www.linkedin.com/in/michal-bar-9100825b/" target="_blank">LinkedIn</a>
-      <a href="mailto:barmichal100@gmail.com">Email</a>
+      <a href="mailto:barmichal100@gmail.com">אימייל</a>
     </div>
   </div>
 </footer>
