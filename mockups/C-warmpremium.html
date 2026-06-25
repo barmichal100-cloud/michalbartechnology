@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>כיוון C · Warm Premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F1E9;--bg2:#FBF7F0;--ink:#23262B;--muted:#6A6A63;--line:#E4DBCC;--accent:#0E6E66;--accent2:#C2603F;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Assistant',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(55% 45% at 85% 6%,rgba(14,110,102,.10),transparent 60%),
+  radial-gradient(45% 40% at 8% 4%,rgba(194,96,63,.10),transparent 60%);pointer-events:none;}
+
+nav{position:relative;display:flex;align-items:center;justify-content:space-between;padding:24px 0;}
+.brand{display:flex;align-items:center;gap:13px;}
+.logo{width:42px;height:42px;border-radius:12px;background:var(--accent);color:#F6F1E9;display:grid;place-items:center;
+  font-family:'Fraunces';font-weight:600;font-size:19px;}
+.brand b{font-family:'Frank Ruhl Libre';font-weight:700;font-size:19px;}
+.brand small{display:block;color:var(--muted);font-size:12.5px;}
+.nav-links{display:flex;gap:30px;align-items:center;color:var(--muted);font-size:15px;font-weight:600;}
+.nav-links a{color:var(--muted);text-decoration:none;}
+.nav-cta{background:var(--ink);color:var(--bg2);padding:10px 22px;border-radius:999px;font-weight:700;font-size:14px;}
+
+.center{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:34px 0 80px;}
+.pill{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;background:#fff;border:1px solid var(--line);
+  color:var(--accent);padding:8px 17px;border-radius:999px;font-size:13.5px;font-weight:700;}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);}
+h1{font-family:'Frank Ruhl Libre';font-size:clamp(38px,6.6vw,70px);line-height:1.06;font-weight:900;letter-spacing:-.5px;margin:24px 0 0;max-width:15ch;}
+h1 .hl{color:var(--accent);font-style:normal;}
+.sub{margin-top:22px;color:#4f4f49;font-size:clamp(16px,2.1vw,20px);line-height:1.65;max-width:52ch;}
+.en{direction:ltr;font-family:'Fraunces';font-style:italic;color:var(--accent2);font-size:18px;margin-top:14px;}
+.cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+.btn1{background:var(--accent);color:#F6F1E9;font-weight:700;font-size:16px;padding:15px 30px;border-radius:12px;text-decoration:none;box-shadow:0 14px 34px -14px rgba(14,110,102,.6);}
+.btn2{background:transparent;border:1.5px solid var(--ink);color:var(--ink);font-weight:700;font-size:16px;padding:14px 26px;border-radius:12px;text-decoration:none;}
+.chips{display:flex;gap:14px;margin-top:50px;flex-wrap:wrap;}
+.chip{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:15px 20px;color:#3c3c38;font-weight:700;font-size:15px;}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--accent2);display:inline-block;}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="wrap">
+      <nav>
+        <div class="brand">
+          <div class="logo">מ</div>
+          <div><b>מיכל בר</b><small>פתרונות טכנולוגיים</small></div>
+        </div>
+        <div class="nav-links">
+          <a href="#">שירותים</a><a href="#">אודות</a><a href="#">פרויקטים</a>
+          <span class="nav-cta">צרו קשר</span>
+        </div>
+      </nav>
+    </div>
+    <div class="wrap center">
+      <span class="pill"><span class="dot"></span> 20+ שנות ניסיון בהייטק</span>
+      <h1>טכנולוגיה עם <span class="hl">ראש שקט</span></h1>
+      <p class="sub">ייעוץ, פיתוח ואוטומציה לעסקים ויזמים — ניסיון עומק מההייטק, בגישה אישית, נקייה ופרקטית.</p>
+      <div class="en">Technology, done thoughtfully.</div>
+      <div class="cta-row">
+        <a class="btn1" href="#">בואו נדבר →</a>
+        <a class="btn2" href="#">השירותים שלי</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><i></i> ייעוץ טכנולוגי</span>
+        <span class="chip"><i></i> פיתוח ואתרים</span>
+        <span class="chip"><i></i> אוטומציה ותהליכים</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

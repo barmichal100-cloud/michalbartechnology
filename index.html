@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מיכל בר · פתרונות טכנולוגיים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080D18; --bg2:#0C1322; --panel:#0E1626; --panel2:#111B2E;
+  --ink:#EAF1FB; --soft:#C2CEDE; --muted:#8595AC; --line:#1C2740; --line2:#243353;
+  --accent:#2DD4BF; --accent2:#4F8CFF; --grad:linear-gradient(120deg,#2DD4BF,#4F8CFF);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+.en{font-family:'Space Grotesk',sans-serif;direction:ltr;}
+
+/* section scaffolding */
+section{position:relative;padding:96px 0;}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-weight:600;font-size:14px;letter-spacing:.5px;}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--accent);border-radius:2px;}
+.s-head{font-size:clamp(28px,4.4vw,44px);font-weight:800;letter-spacing:-.5px;margin:14px 0 0;max-width:20ch;}
+.s-lead{color:var(--muted);font-size:clamp(16px,2vw,19px);margin-top:14px;max-width:58ch;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;}
+header.scrolled{background:rgba(8,13,24,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+.brand{display:flex;align-items:center;gap:12px;}
+.logo{width:42px;height:42px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#04121A;font-weight:800;font-size:18px;font-family:'Space Grotesk';}
+.brand b{font-weight:800;font-size:17px;display:block;line-height:1.15;}
+.brand small{color:var(--muted);font-size:12px;}
+.nav-links{display:flex;gap:30px;align-items:center;color:var(--soft);font-size:15px;font-weight:500;}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{border:1px solid var(--line2);color:var(--ink);padding:9px 18px;border-radius:999px;font-weight:600;font-size:14px;}
+.nav-cta:hover{border-color:var(--accent);}
+.burger{display:none;}
+
+/* HERO */
+.hero{padding-top:48px;padding-bottom:60px;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(58% 50% at 80% 6%,rgba(45,212,191,.18),transparent 60%),
+  radial-gradient(48% 42% at 10% 0%,rgba(79,140,255,.16),transparent 60%);pointer-events:none;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;opacity:.16;mask-image:radial-gradient(75% 55% at 50% 18%,#000,transparent 78%);}
+.hero-in{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;min-height:74vh;}
+.pill{display:inline-flex;align-items:center;gap:9px;background:rgba(45,212,191,.10);border:1px solid rgba(45,212,191,.30);
+  color:var(--accent);padding:7px 15px;border-radius:999px;font-size:13.5px;font-weight:600;}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);}
+h1{font-size:clamp(36px,5.6vw,62px);line-height:1.07;font-weight:900;letter-spacing:-.7px;margin:22px 0 0;}
+h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p.sub{margin-top:20px;color:var(--soft);font-size:clamp(16px,2vw,20px);max-width:50ch;}
+.tagline{margin-top:14px;color:#6b7a90;font-size:13px;letter-spacing:2px;text-transform:uppercase;}
+.cta-row{display:flex;gap:13px;margin-top:32px;flex-wrap:wrap;}
+.btn1{background:var(--grad);color:#04121A;font-weight:800;font-size:16px;padding:15px 30px;border-radius:12px;box-shadow:0 14px 40px -14px rgba(45,212,191,.6);}
+.btn2{border:1px solid var(--line2);color:var(--ink);font-weight:600;font-size:16px;padding:15px 26px;border-radius:12px;}
+.btn2:hover{border-color:var(--accent);}
+
+/* hero visual — terminal/code card */
+.glass{background:linear-gradient(180deg,rgba(20,30,50,.9),rgba(12,19,34,.9));border:1px solid var(--line2);border-radius:18px;
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.8);overflow:hidden;}
+.term-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid var(--line);}
+.term-bar i{width:11px;height:11px;border-radius:50%;background:#33405c;}
+.term-bar i:nth-child(1){background:#ff5f57;}.term-bar i:nth-child(2){background:#febc2e;}.term-bar i:nth-child(3){background:#28c840;}
+.term-bar span{margin-inline-start:auto;color:var(--muted);font-size:12px;font-family:'Space Grotesk';}
+.term-body{padding:18px 18px 22px;font-family:'Space Grotesk';direction:ltr;font-size:13.5px;line-height:1.9;}
+.term-body .c{color:#5b6b86;}.term-body .k{color:var(--accent2);}.term-body .g{color:var(--accent);}.term-body .w{color:#cdd8ea;}
+.float-card{position:absolute;background:var(--panel2);border:1px solid var(--line2);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:11px;box-shadow:0 20px 50px -20px rgba(0,0,0,.7);}
+.float-card .ic{width:34px;height:34px;border-radius:9px;background:rgba(45,212,191,.14);color:var(--accent);display:grid;place-items:center;}
+.float-card b{font-size:14px;}.float-card small{display:block;color:var(--muted);font-size:12px;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0;margin-top:10px;}
+.stat b{font-size:clamp(28px,4vw,40px);font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:'Space Grotesk';}
+.stat span{display:block;color:var(--muted);font-size:14.5px;margin-top:4px;}
+
+/* SERVICES */
+.alt{background:var(--bg2);}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px 24px;transition:border-color .25s,transform .25s;}
+.card:hover{border-color:var(--line2);transform:translateY(-4px);}
+.card .ic{width:46px;height:46px;border-radius:12px;background:rgba(79,140,255,.12);color:var(--accent);display:grid;place-items:center;margin-bottom:16px;}
+.card h3{font-size:19px;font-weight:700;}
+.card p{color:var(--muted);font-size:15px;margin-top:8px;}
+.card ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:7px;}
+.card li{color:var(--soft);font-size:14px;padding-inline-start:20px;position:relative;}
+.card li::before{content:"";position:absolute;inset-inline-start:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent);}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:46px;align-items:center;}
+.portrait{aspect-ratio:4/5;border-radius:20px;background:
+  linear-gradient(180deg,rgba(45,212,191,.12),rgba(79,140,255,.10)),var(--panel2);border:1px solid var(--line2);
+  display:grid;place-items:center;color:var(--muted);position:relative;overflow:hidden;}
+.portrait span{font-size:14px;}
+.about-grid p{color:var(--soft);font-size:17px;margin-top:16px;}
+.sig{margin-top:22px;font-weight:700;}.sig small{display:block;color:var(--muted);font-weight:400;font-size:14px;}
+
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;}
+.step{position:relative;padding-top:18px;border-top:2px solid var(--line2);}
+.step b.n{font-family:'Space Grotesk';color:var(--accent);font-size:15px;}
+.step h4{font-size:18px;font-weight:700;margin-top:8px;}
+.step p{color:var(--muted);font-size:14.5px;margin-top:6px;}
+
+/* PROJECTS */
+.proj{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px;}
+.pcard{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);transition:transform .25s,border-color .25s;}
+.pcard:hover{transform:translateY(-4px);border-color:var(--line2);}
+.pcard .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#10243a,#0c1322);display:grid;place-items:center;color:var(--muted);border-bottom:1px solid var(--line);}
+.pcard .body{padding:20px 22px;}
+.pcard .tag{display:inline-block;background:rgba(45,212,191,.10);color:var(--accent);font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:999px;}
+.pcard h4{font-size:19px;font-weight:700;margin:10px 0 4px;}
+.pcard p{color:var(--muted);font-size:14.5px;}
+
+/* TESTIMONIALS */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+.quote{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;}
+.quote .stars{color:var(--accent);font-size:14px;letter-spacing:2px;}
+.quote p{color:var(--soft);font-size:15.5px;margin:12px 0 16px;}
+.quote .who{display:flex;align-items:center;gap:12px;}
+.quote .av{width:40px;height:40px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#04121A;font-weight:800;}
+.quote .who b{font-size:14.5px;}.quote .who small{display:block;color:var(--muted);font-size:13px;}
+
+/* CONTACT */
+.cta{position:relative;text-align:center;border:1px solid var(--line2);border-radius:24px;padding:60px 28px;overflow:hidden;
+  background:radial-gradient(70% 120% at 50% 0%,rgba(45,212,191,.14),transparent 60%),var(--panel);}
+.cta h2{font-size:clamp(28px,4.4vw,46px);font-weight:900;letter-spacing:-.5px;}
+.cta p{color:var(--soft);font-size:18px;margin-top:14px;}
+.cta .cta-row{justify-content:center;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+.foot a:hover{color:var(--ink);}
+.fsoc{display:flex;gap:14px;}
+
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .hero-in{grid-template-columns:1fr;min-height:auto;}
+  .hero-visual{display:none;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .cards,.steps,.quotes,.proj,.about-grid{grid-template-columns:1fr;}
+  section{padding:70px 0;}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top">
+        <div class="logo">MB</div>
+        <div><b>מיכל בר</b><small>פתרונות טכנולוגיים</small></div>
+      </a>
+      <div class="nav-links">
+        <a href="#services">שירותים</a>
+        <a href="#about">אודות</a>
+        <a href="#process">איך עובדים</a>
+        <a href="#projects">פרויקטים</a>
+        <a class="nav-cta" href="#contact">צרו קשר</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="hero-in">
+      <div class="reveal in">
+        <span class="pill"><span class="dot"></span> 20+ שנות ניסיון בהייטק</span>
+        <h1>פתרונות טכנולוגיים<br>שמניעים את העסק שלך <span class="hl">קדימה</span></h1>
+        <p class="sub">ייעוץ, פיתוח ואוטומציה של תהליכים — מתרגמת ניסיון עומק מההייטק לכלים פרקטיים שעובדים בשבילך.</p>
+        <div class="tagline en">Technology · Strategy · Automation</div>
+        <div class="cta-row">
+          <a class="btn1" href="#contact">בואו נדבר →</a>
+          <a class="btn2" href="#services">השירותים שלי</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal in" style="position:relative;">
+        <div class="glass">
+          <div class="term-bar"><i></i><i></i><i></i><span class="en">solution.ts</span></div>
+          <div class="term-body">
+            <div><span class="k">function</span> <span class="g">buildSolution</span><span class="w">(business) {</span></div>
+            <div>&nbsp;&nbsp;<span class="c">// understand the real need</span></div>
+            <div>&nbsp;&nbsp;<span class="k">const</span> <span class="w">plan = strategy(business);</span></div>
+            <div>&nbsp;&nbsp;<span class="k">const</span> <span class="w">app = build(plan);</span></div>
+            <div>&nbsp;&nbsp;automate<span class="w">(app.workflows);</span></div>
+            <div>&nbsp;&nbsp;<span class="k">return</span> <span class="g">growth</span><span class="w">;</span></div>
+            <div><span class="w">}</span></div>
+          </div>
+        </div>
+        <div class="float-card" style="bottom:-22px;inset-inline-start:-18px;">
+          <div class="ic">✓</div><div><b>נמסר בזמן</b><small>תהליך שקוף מקצה לקצה</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b class="en">20+</b><span>שנות ניסיון</span></div>
+      <div class="stat"><b class="en">50+</b><span>פרויקטים</span></div>
+      <div class="stat"><b class="en">100%</b><span>גישה אישית</span></div>
+      <div class="stat"><b class="en">∞</b><span>סקרנות טכנולוגית</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="alt" id="services">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">השירותים</span>
+      <h2 class="s-head">כל מה שצריך כדי להפוך טכנולוגיה ליתרון</h2>
+      <p class="s-lead">משלב אסטרטגיה, פיתוח ואוטומציה — בליווי אישי מההתחלה ועד התוצאה.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ic">◆</div>
+        <h3>ייעוץ טכנולוגי</h3>
+        <p>הכוונה לבחירות הנכונות — כלים, ארכיטקטורה ותעדוף.</p>
+        <ul><li>מיפוי צרכים ואפיון</li><li>בחירת טכנולוגיות</li><li>ליווי קבלת החלטות</li></ul>
+      </div>
+      <div class="card reveal">
+        <div class="ic">&lt;/&gt;</div>
+        <h3>פיתוח ואתרים</h3>
+        <p>מוצרים ואתרים מהירים, מדויקים ומותאמים בדיוק לצורך.</p>
+        <ul><li>אתרי תדמית ונחיתה</li><li>מערכות ואפליקציות</li><li>אינטגרציות וממשקים</li></ul>
+      </div>
+      <div class="card reveal">
+        <div class="ic">⚙</div>
+        <h3>אוטומציה ותהליכים</h3>
+        <p>תהליכים חכמים שחוסכים זמן ידני ועובדים לבד.</p>
+        <ul><li>אוטומציות עבודה</li><li>חיבור כלים ומערכות</li><li>ייעול תפעולי</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="portrait reveal"><span>תמונה / פורטרט</span></div>
+    <div class="reveal">
+      <span class="eyebrow">אודות</span>
+      <h2 class="s-head">היי, אני מיכל</h2>
+      <p>אחרי 20+ שנים בעולם ההייטק — בפיתוח, ניהול מוצר וטכנולוגיה — אני עוזרת לעסקים וליזמים לתרגם רעיונות ואתגרים לפתרונות טכנולוגיים פשוטים שעובדים.</p>
+      <p>אני מאמינה בגישה אישית, בשקיפות מלאה ובלעשות דברים נכון — בלי באזז־וורדס, עם פוקוס על מה שבאמת מקדם אותך.</p>
+      <div class="sig">מיכל בר<small>פתרונות טכנולוגיים · ייעוץ · פיתוח · אוטומציה</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="alt" id="process">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">איך עובדים</span>
+      <h2 class="s-head">תהליך פשוט, שקוף, בלי הפתעות</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><b class="n en">01</b><h4>שיחת היכרות</h4><p>מבינים את הצורך, היעדים והאתגרים.</p></div>
+      <div class="step reveal"><b class="n en">02</b><h4>אפיון ותכנון</h4><p>בונים מפת דרכים ופתרון מותאם.</p></div>
+      <div class="step reveal"><b class="n en">03</b><h4>פיתוח ויישום</h4><p>מבצעים, עם עדכון שוטף ושקיפות.</p></div>
+      <div class="step reveal"><b class="n en">04</b><h4>השקה וליווי</h4><p>עולים לאוויר, ומלווים גם אחרי.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">פרויקטים</span>
+      <h2 class="s-head">עבודות נבחרות</h2>
+      <p class="s-lead">דוגמאות לפתרונות שבניתי מקצה לקצה.</p>
+    </div>
+    <div class="proj">
+      <a class="pcard reveal" href="https://makombateva.com" target="_blank">
+        <div class="thumb">תצוגה מקדימה</div>
+        <div class="body"><span class="tag">אתר · עיצוב · פיתוח</span><h4>מקום בטבע</h4><p>אתר תדמית ונחיתה לאירוח אירועים — עיצוב, פיתוח, גלריה ועמוד מדריך מאובטח.</p></div>
+      </a>
+      <a class="pcard reveal" href="#">
+        <div class="thumb">תצוגה מקדימה</div>
+        <div class="body"><span class="tag">אוטומציה</span><h4>פרויקט לדוגמה</h4><p>מקום לפרויקט נוסף — נמלא יחד עם תיאור ותוצאות.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="alt" id="testimonials">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">המלצות</span>
+      <h2 class="s-head">מה אומרים עליי</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>"מיכל הבינה בדיוק מה היה חסר לנו ובנתה פתרון שחסך לנו שעות עבודה בכל שבוע."</p><div class="who"><div class="av">א</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>"מקצועית, אישית וזמינה. קיבלנו אתר מהמם ותהליך נעים מההתחלה ועד הסוף."</p><div class="who"><div class="av">ב</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>"היכולת לחבר בין הבנה עסקית לטכנולוגיה היא נדירה — בדיוק מה שחיפשנו."</p><div class="who"><div class="av">ג</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <span class="eyebrow" style="justify-content:center;">צרו קשר</span>
+      <h2>יש לכם אתגר טכנולוגי?<br>בואו נדבר.</h2>
+      <p>שיחת היכרות ראשונית — ללא התחייבות.</p>
+      <div class="cta-row">
+        <a class="btn1" href="https://wa.me/972547105176" target="_blank">וואטסאפ</a>
+        <a class="btn2" href="mailto:barmichal100@gmail.com">אימייל</a>
+        <a class="btn2" href="https://www.linkedin.com/in/michal-bar-9100825b/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand">
+      <div class="logo">MB</div>
+      <div><b>מיכל בר</b><small>פתרונות טכנולוגיים</small></div>
+    </div>
+    <div>© <span class="en">2026</span> מיכל בר · כל הזכויות שמורות</div>
+    <div class="fsoc">
+      <a href="https://www.linkedin.com/in/michal-bar-9100825b/" target="_blank">LinkedIn</a>
+      <a href="mailto:barmichal100@gmail.com">אימייל</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky header bg
+  var hdr=document.getElementById('hdr');
+  addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>10);});
+  // scroll reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>כיוון A · Deep Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0F1C;--bg2:#0E1626;--ink:#EAF1FB;--muted:#94A3B8;--line:#1E293B;--accent:#2DD4BF;--accent2:#4F8CFF;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+
+/* glow backdrop */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 50% at 78% 12%,rgba(45,212,191,.18),transparent 60%),
+  radial-gradient(50% 45% at 12% 8%,rgba(79,140,255,.16),transparent 60%);pointer-events:none;}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:54px 54px;opacity:.20;mask-image:radial-gradient(80% 60% at 50% 20%,#000,transparent 75%);}
+
+nav{position:relative;display:flex;align-items:center;justify-content:space-between;padding:22px 0;}
+.brand{display:flex;align-items:center;gap:12px;}
+.logo{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:grid;place-items:center;color:#04121A;font-weight:900;font-size:19px;font-family:'Space Grotesk';}
+.brand b{font-weight:800;font-size:17px;letter-spacing:.2px;}
+.brand small{display:block;color:var(--muted);font-size:12px;font-weight:500;}
+.nav-links{display:flex;gap:28px;align-items:center;color:var(--muted);font-size:15px;font-weight:500;}
+.nav-links a{color:var(--muted);text-decoration:none;}
+.nav-cta{border:1px solid var(--line);color:var(--ink);padding:9px 18px;border-radius:999px;font-weight:700;font-size:14px;}
+
+.center{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:40px 0 70px;}
+.pill{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:rgba(45,212,191,.10);
+  border:1px solid rgba(45,212,191,.30);color:var(--accent);padding:7px 15px;border-radius:999px;font-size:13.5px;font-weight:600;}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.08;font-weight:900;letter-spacing:-.5px;margin:22px 0 0;max-width:16ch;}
+h1 .hl{background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.sub{margin-top:20px;color:var(--muted);font-size:clamp(16px,2.1vw,20px);line-height:1.6;max-width:54ch;}
+.en{direction:ltr;font-family:'Space Grotesk';color:#6b7a90;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-top:14px;}
+.cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+.btn1{background:linear-gradient(120deg,var(--accent),var(--accent2));color:#04121A;font-weight:800;font-size:16px;
+  padding:15px 30px;border-radius:12px;text-decoration:none;box-shadow:0 12px 40px -12px rgba(45,212,191,.6);}
+.btn2{border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:16px;padding:15px 26px;border-radius:12px;text-decoration:none;}
+.chips{display:flex;gap:12px;margin-top:48px;flex-wrap:wrap;}
+.chip{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 18px;color:#cbd5e1;font-weight:600;font-size:15px;}
+.chip i{width:9px;height:9px;border-radius:3px;background:var(--accent);display:inline-block;}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="grid"></div>
+    <div class="wrap">
+      <nav>
+        <div class="brand">
+          <div class="logo">MB</div>
+          <div><b>מיכל בר</b><small>פתרונות טכנולוגיים</small></div>
+        </div>
+        <div class="nav-links">
+          <a href="#">שירותים</a><a href="#">אודות</a><a href="#">פרויקטים</a>
+          <span class="nav-cta">צרו קשר</span>
+        </div>
+      </nav>
+    </div>
+    <div class="wrap center">
+      <span class="pill"><span class="dot"></span> 20+ שנות ניסיון בהייטק</span>
+      <h1>פתרונות טכנולוגיים<br>שמניעים את העסק שלך <span class="hl">קדימה</span></h1>
+      <p class="sub">ייעוץ, פיתוח ואוטומציה של תהליכים — מתרגמת ניסיון עומק מההייטק לכלים פרקטיים שעובדים בשבילך.</p>
+      <div class="en">Technology · Strategy · Automation</div>
+      <div class="cta-row">
+        <a class="btn1" href="#">בואו נדבר →</a>
+        <a class="btn2" href="#">השירותים שלי</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><i></i> ייעוץ טכנולוגי</span>
+        <span class="chip"><i></i> פיתוח ואתרים</span>
+        <span class="chip"><i></i> אוטומציה ותהליכים</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
