@@ -40,9 +40,15 @@ section{position:relative;padding:104px 0;}
 .reveal.in{opacity:1;transform:none;}
 
 /* NAV */
-header{position:sticky;top:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;}
-header.scrolled{background:rgba(16,13,20,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+header{position:sticky;top:0;z-index:50;background:rgba(18,14,24,.8);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line2);transition:background .3s;}
+header.scrolled{background:rgba(11,9,16,.95);}
+nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
+.burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;border:1px solid var(--line2);border-radius:12px;background:transparent;cursor:pointer;align-items:center;justify-content:center;}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s;}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .brand{display:flex;align-items:center;gap:13px;}
 .logo{width:44px;height:44px;border-radius:13px;background:var(--grad);display:grid;place-items:center;color:#241307;font-weight:700;font-size:19px;font-family:var(--serif);}
 .brand b{font-family:var(--serif);font-weight:700;font-size:19px;display:block;line-height:1.1;}
@@ -182,7 +188,13 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 @media(prefers-reduced-motion:reduce){.aurora i,.hero-visual .glass,.hero-visual .float-card{animation:none;}}
 
 @media(max-width:860px){
-  .nav-links{display:none;}
+  .burger{display:flex;}
+  .nav-links{position:fixed;top:75px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;
+    background:rgba(13,10,18,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--line2);
+    padding:6px 28px 20px;transform:translateY(-135%);transition:transform .35s cubic-bezier(.2,.7,.2,1);}
+  .nav-links.open{transform:none;}
+  .nav-links a{padding:15px 2px;border-bottom:1px solid var(--line);font-size:17px;color:var(--ink);font-weight:600;}
+  .nav-links .nav-cta{margin-top:16px;border:1px solid var(--accent);text-align:center;border-radius:12px;padding:13px;}
   .hero-in{grid-template-columns:1fr;min-height:auto;}
   .hero-visual{display:none;}
   .stats{grid-template-columns:repeat(2,1fr);}
@@ -200,13 +212,14 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
         <div class="logo">מ</div>
         <div><b>מיכל בר</b><small>TECH SOLUTIONS</small></div>
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="navlinks">
         <a href="#services">שירותים</a>
         <a href="#about">אודות</a>
         <a href="#process">איך עובדים</a>
         <a href="#projects">פרויקטים</a>
         <a class="nav-cta" href="#contact">צרו קשר</a>
       </div>
+      <button class="burger" id="burger" aria-label="תפריט"><span></span><span></span><span></span></button>
     </nav>
   </div>
 </header>
@@ -392,6 +405,13 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 <script>
   var hdr=document.getElementById('hdr');
   addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>10);});
+
+  // mobile menu (hamburger)
+  var burger=document.getElementById('burger'),navlinks=document.getElementById('navlinks');
+  if(burger){
+    burger.addEventListener('click',function(){burger.classList.toggle('open');navlinks.classList.toggle('open');});
+    navlinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');navlinks.classList.remove('open');});});
+  }
 
   // section reveal on scroll
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
