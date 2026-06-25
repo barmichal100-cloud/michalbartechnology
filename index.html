@@ -207,7 +207,15 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 .seal-core span{font-family:var(--serif);font-weight:700;font-size:clamp(58px,7.5vw,100px);line-height:1;
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 @keyframes spin{to{transform:rotate(360deg);}}
-@media(max-width:860px){.seal{width:min(64vw,240px);margin-top:8px;}}
+
+/* scroll hint */
+.scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--muted);
+  font-size:13px;letter-spacing:1.5px;transition:color .25s;}
+.scroll-hint:hover{color:var(--accent);}
+.scroll-hint .arr{width:18px;height:18px;animation:bouncey 1.8s ease-in-out infinite;}
+@keyframes bouncey{0%,100%{transform:translateY(0);opacity:.65;}50%{transform:translateY(7px);opacity:1;}}
+@media(prefers-reduced-motion:reduce){.scroll-hint .arr{animation:none;}}
 
 @media(max-width:860px){
   .burger{display:flex;}
@@ -267,6 +275,10 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
       </div>
     </div>
   </div>
+  <a class="scroll-hint" href="#services" aria-label="גלילה למטה">
+    <span>גלילה</span>
+    <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+  </a>
 </section>
 
 <!-- SERVICES -->
