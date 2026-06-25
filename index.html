@@ -11,8 +11,8 @@
 @font-face{font-family:'Yarden';src:url('fonts/yarden-regular.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0020-0040,U+005B-0060,U+007B-00FF,U+0590-05FF,U+FB1D-FB4F,U+2000-206F,U+20AA;}
 @font-face{font-family:'Yarden';src:url('fonts/yarden-bold.woff2') format('woff2');font-weight:700;font-display:swap;unicode-range:U+0020-0040,U+005B-0060,U+007B-00FF,U+0590-05FF,U+FB1D-FB4F,U+2000-206F,U+20AA;}
 :root{
-  --bg:#100D14; --bg2:#181320; --panel:#1E1828; --panel2:#251E33;
-  --ink:#F3ECDF; --soft:#D3C8B7; --muted:#988C7C; --line:#2C2436; --line2:#3C3349;
+  --bg:#0B0910; --bg2:#1B1426; --panel:#241C32; --panel2:#2C2340;
+  --ink:#F3ECDF; --soft:#D3C8B7; --muted:#988C7C; --line:#2E2740; --line2:#4A3E5C;
   --accent:#E3A45C; --accent2:#C76B45; --grad:linear-gradient(120deg,#EEBC7C,#C76B45);
   --mono:'JetBrains Mono',monospace; --serif:'Yarden',serif;
 }
@@ -88,11 +88,15 @@ h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .stat b{font-size:clamp(30px,4vw,44px);font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:var(--mono);}
 .stat span{display:block;color:var(--muted);font-size:14.5px;margin-top:4px;}
 
-/* ALT bands */
-.alt{background:radial-gradient(75% 90% at 50% 0%,rgba(227,164,92,.06),transparent 62%),var(--bg2);
-  border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);}
-.alt::before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:240px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.55;}
+/* ALT bands (clearly lighter) */
+.alt{background:radial-gradient(80% 95% at 50% 0%,rgba(227,164,92,.10),transparent 60%),var(--bg2);}
+
+/* strong, unmistakable divider at every section boundary */
+section:not(.hero){border-top:1px solid var(--line2);}
+section:not(.hero)::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(227,164,92,.6) 32%,rgba(227,164,92,.6) 68%,transparent);}
+section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotate(45deg);
+  width:14px;height:14px;background:var(--grad);border-radius:3px;box-shadow:0 0 24px rgba(227,164,92,.8);}
 
 /* SERVICES */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px;}
