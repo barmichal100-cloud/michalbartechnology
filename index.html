@@ -63,7 +63,9 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0
 .hero::before{content:"";position:absolute;inset:0;background:
   radial-gradient(56% 48% at 80% 4%,rgba(227,164,92,.16),transparent 60%),
   radial-gradient(46% 40% at 8% 0%,rgba(199,107,69,.14),transparent 60%);pointer-events:none;}
-.hero-in{position:relative;display:grid;grid-template-columns:1.32fr .68fr;gap:40px;align-items:center;min-height:74vh;}
+.hero-in{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:74vh;}
+.hero-copy{max-width:760px;}
+.mega{font-size:clamp(52px,9vw,128px) !important;}
 .kicker{display:inline-flex;align-items:center;gap:13px;color:var(--soft);font-size:15.5px;font-weight:600;letter-spacing:.2px;}
 .kicker .kbar{width:36px;height:2px;background:var(--grad);border-radius:2px;display:inline-block;}
 .kicker b{color:var(--accent);font-weight:700;}
@@ -189,7 +191,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 
 /* ── bold hero: oversized type + rotating signature seal ── */
 .mega{font-size:clamp(44px,7.4vw,104px);line-height:1.0;letter-spacing:-1.5px;}
-.mega .l2{display:block;margin-top:.02em;}
+.mega .l2{display:block;margin-top:.02em;white-space:nowrap;}
 .mega .rot{display:inline-grid;}
 .hero-seal{display:flex;justify-content:center;align-items:center;}
 .seal{position:relative;width:min(82vw,330px);aspect-ratio:1;display:grid;place-items:center;
@@ -250,21 +252,12 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
         <div class="kicker"><span class="kbar"></span> <b>20+ שנים</b>&nbsp;בעולם ההייטק</div>
         <h1 class="mega">
           <span class="ln"><span>טכנולוגיה</span></span>
-          <span class="l2">עם <span class="rot"><span class="on">ראש שקט.</span><span>יתרון אמיתי.</span><span>נשמה.</span><span>תוצאות.</span></span></span>
+          <span class="l2">עם <span class="rot"><span class="on">ראש שקט.</span><span>יתרון.</span><span>נשמה.</span><span>תוצאות.</span></span></span>
         </h1>
         <p class="sub">ייעוץ, פיתוח ואוטומציה — מתרגמת ניסיון עומק מההייטק לכלים פשוטים שעובדים בשבילך.</p>
         <div class="cta-row">
           <a class="btn1 magnetic" href="#contact">בואו נדבר →</a>
           <a class="btn2 magnetic" href="#services">השירותים שלי</a>
-        </div>
-      </div>
-      <div class="hero-seal">
-        <div class="seal">
-          <svg viewBox="0 0 220 220" class="seal-ring" aria-hidden="true">
-            <defs><path id="sealpath" d="M110,110 m-85,0 a85,85 0 1,1 170,0 a85,85 0 1,1 -170,0"/></defs>
-            <text><textPath href="#sealpath" startOffset="0">פתרונות טכנולוגיים&nbsp;·&nbsp;מיכל בר&nbsp;·&nbsp;פתרונות טכנולוגיים&nbsp;·&nbsp;מיכל בר&nbsp;·&nbsp;</textPath></text>
-          </svg>
-          <div class="seal-core"><span>מ</span></div>
         </div>
       </div>
     </div>
