@@ -230,6 +230,12 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
   .stats{grid-template-columns:repeat(2,1fr);}
   .cards,.steps,.quotes,.proj,.about-grid{grid-template-columns:1fr;}
   section{padding:74px 0;}
+  /* mobile hero: fill better + bring scroll hint into view */
+  .hero{min-height:calc(100svh - 72px);padding:30px 0 30px;}
+  .mega{font-size:clamp(40px,11vw,72px) !important;}
+  .hero p.sub{margin-top:26px;font-size:17px;line-height:1.7;}
+  .hero .cta-row{margin-top:36px;}
+  .scroll-hint{bottom:14px;}
 }
 </style>
 </head>
