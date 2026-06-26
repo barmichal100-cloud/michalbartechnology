@@ -17,7 +17,7 @@
   --mono:'JetBrains Mono',monospace; --serif:'Yarden',serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:88px;}
 body{font-family:'Assistant',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6;position:relative;}
 /* film grain */
 body::after{content:"";position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
@@ -274,8 +274,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
         <p class="sub">מזהה את הצורך השורשי ובונה את הפתרון הנכון –<br>מוצר, תהליך, ייעוץ או אוטומציה. מקצה לקצה.<br>בשילוב נדיר של ניסיון טכנולוגי, מוצרי, פיתוחי,<br>ושנים של עבודה מול לקוחות בשטח.</p>
         <div class="cta-row">
           <a class="btn1 magnetic" href="#contact">בואו נדבר →</a>
-          <a class="btn2 magnetic" href="#about">למה דווקא אני?</a>
           <a class="btn2 magnetic" href="#services">השירותים שלי</a>
+          <a class="btn2 magnetic" href="#about">למה דווקא אני?</a>
         </div>
       </div>
     </div>
@@ -424,6 +424,11 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 <script>
   var hdr=document.getElementById('hdr');
   addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>10);});
+
+  // logo / "back to top" links: scroll all the way to the top
+  document.querySelectorAll('a[href="#top"]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+  });
 
   // mobile menu (hamburger)
   var burger=document.getElementById('burger'),navlinks=document.getElementById('navlinks');
