@@ -180,11 +180,43 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .cta p{color:var(--soft);font-size:18px;margin-top:14px;}
 .cta .cta-row{justify-content:center;}
 
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:50px;align-items:stretch;}
+.contact-form{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px;text-align:right;}
+.contact-form h3{font-family:var(--serif);font-size:24px;color:var(--ink);}
+.form-sub{color:var(--muted);font-size:14px;margin:4px 0 20px;}
+.field{margin-bottom:14px;}
+.field label{display:block;color:var(--soft);font-size:14px;margin-bottom:6px;}
+.field input,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:12px 14px;color:var(--ink);font-family:inherit;font-size:15px;outline:none;transition:border-color .2s;}
+.field input:focus,.field textarea:focus{border-color:var(--accent);}
+.field textarea{min-height:108px;resize:vertical;}
+.field input::placeholder,.field textarea::placeholder{color:#6f6557;}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.form-submit{width:100%;margin-top:6px;border:0;cursor:pointer;}
+.form-status{margin-top:14px;font-size:14.5px;text-align:center;min-height:1.2em;}
+.form-status.ok{color:#5ad19a;}
+.form-status.err{color:#e69277;}
+.contact-side{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  background:radial-gradient(70% 80% at 50% 0%,rgba(227,164,92,.08),transparent 60%),var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px 28px;}
+.wa-circle{width:88px;height:88px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 0 44px -8px rgba(37,211,102,.55);transition:transform .25s;}
+.wa-circle:hover{transform:translateY(-3px) scale(1.04);}
+.wa-circle svg{width:46px;height:46px;}
+.wa-cta{font-family:var(--serif);font-weight:700;font-size:20px;margin-top:20px;color:var(--ink);}
+.wa-phone{font-family:var(--mono);color:var(--accent);font-size:18px;margin-top:6px;}
+.social-row{display:flex;gap:13px;margin-top:24px;}
+.social-row a{width:46px;height:46px;border-radius:12px;border:1px solid var(--line2);display:grid;place-items:center;color:var(--soft);transition:border-color .2s,color .2s,transform .2s;}
+.social-row a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.social-row svg{width:22px;height:22px;}
+
 /* FOOTER */
-footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14.5px;}
-.foot a:hover{color:var(--ink);}
-.fsoc{display:flex;gap:14px;font-family:var(--mono);direction:ltr;font-size:13.5px;}
+.site-footer{border-top:1px solid var(--line2);background:var(--bg2);padding-top:56px;}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;}
+.footer-brand .brand{margin-bottom:16px;}
+.footer-brand p{color:var(--muted);font-size:15px;line-height:1.6;max-width:40ch;}
+.footer-col h4{font-family:var(--serif);color:var(--accent);font-size:17px;margin-bottom:14px;}
+.footer-col a{display:block;color:var(--soft);font-size:15px;padding:5px 0;}
+.footer-col a:hover{color:var(--ink);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:13.5px;}
 
 /* ── kinetic hero ── */
 .hero .wrap{position:relative;z-index:2;}
@@ -244,7 +276,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
   .hero-in{grid-template-columns:1fr;min-height:auto;}
   .hero-visual{display:none;}
   .stats{grid-template-columns:repeat(2,1fr);}
-  .cards,.steps,.quotes,.proj,.about-grid{grid-template-columns:1fr;}
+  .cards,.steps,.quotes,.proj,.about-grid,.contact-grid,.footer-inner{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;text-align:center;gap:8px;}
   .tl{grid-template-columns:1fr;gap:24px;}
   .tl::before{top:6px;bottom:6px;inset-inline:auto;inset-inline-start:6px;width:2px;height:auto;background:linear-gradient(180deg,var(--line2),var(--accent),var(--line2));}
   .tl li{text-align:start;padding:0 30px 0 0;padding-inline-start:30px;padding-inline-end:0;}
@@ -372,7 +405,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
     <div class="reveal">
       <span class="eyebrow"><span class="idx">03</span> <span class="ttl">פרויקטים</span></span>
       <h2 class="s-head">פרויקטים נבחרים</h2>
-      <p class="s-lead">דוגמאות לפתרונות שבניתי מקצה לקצה.</p>
+      <p class="s-lead">כמה מהפתרונות שאפיינתי ובניתי – מהצורך ועד התוצאה</p>
     </div>
     <div class="proj">
       <a class="pcard reveal" href="https://makombateva.com" target="_blank">
@@ -395,10 +428,10 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
       <h2 class="s-head">תהליך פשוט, שקוף, בלי הפתעות</h2>
     </div>
     <div class="steps">
-      <div class="step reveal"><b class="n">01</b><h4>שיחת היכרות</h4><p>מבינים את הצורך, היעדים והאתגרים.</p></div>
-      <div class="step reveal"><b class="n">02</b><h4>אפיון ותכנון</h4><p>בונים מפת דרכים ופתרון מותאם.</p></div>
-      <div class="step reveal"><b class="n">03</b><h4>פיתוח ויישום</h4><p>מבצעים, עם עדכון שוטף ושקיפות.</p></div>
-      <div class="step reveal"><b class="n">04</b><h4>השקה וליווי</h4><p>עולים לאוויר, ומלווים גם אחרי.</p></div>
+      <div class="step reveal"><b class="n">01</b><h4>שיחת היכרות</h4><p>מבינים את הצורך, היעדים והאתגרים</p></div>
+      <div class="step reveal"><b class="n">02</b><h4>אפיון ותכנון</h4><p>בונים אפיון ופתרון מותאם</p></div>
+      <div class="step reveal"><b class="n">03</b><h4>פיתוח ויישום</h4><p>מבצעים, עם עדכון שוטף ושקיפות</p></div>
+      <div class="step reveal"><b class="n">04</b><h4>השקה והתאמות</h4><p>עולים לאוויר ומבצעים התאמות אחרונות – עד שביעות רצון מלאה</p></div>
     </div>
   </div>
 </section>
@@ -421,30 +454,82 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
-    <div class="cta reveal">
+    <div class="reveal" style="text-align:center;">
       <span class="eyebrow" style="justify-content:center;"><span class="idx">06</span> <span class="ttl">צרו קשר</span></span>
-      <h2>יש לכם אתגר טכנולוגי?<br>בואו נדבר.</h2>
-      <p>שיחת היכרות ראשונית – ללא התחייבות.</p>
-      <div class="cta-row">
-        <a class="btn1" href="https://wa.me/972547105176" target="_blank">וואטסאפ</a>
-        <a class="btn2" href="mailto:barmichal100@gmail.com">אימייל</a>
-        <a class="btn2" href="https://www.linkedin.com/in/michal-bar-9100825b/" target="_blank">LinkedIn</a>
+      <h2 class="s-head" style="margin-inline:auto;">יש לכם אתגר, רעיון או פרויקט?</h2>
+      <p class="s-lead" style="margin-inline:auto;">שיחת היכרות ראשונית – ללא התחייבות</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- form -->
+      <form class="contact-form reveal" id="contactForm" novalidate autocomplete="on">
+        <h3>השאירו פרטים</h3>
+        <p class="form-sub">אחזור אליכם תוך 24 שעות</p>
+        <div class="field"><label for="name">שם</label>
+          <input type="text" id="name" name="name" required maxlength="80" autocomplete="name" placeholder="איך נכון לפנות אליכם?" dir="rtl" /></div>
+        <div class="field"><label for="phone">טלפון</label>
+          <input type="tel" id="phone" name="phone" maxlength="20" autocomplete="tel" inputmode="tel" placeholder="050-0000000" dir="ltr" /></div>
+        <div class="field"><label for="email">דוא״ל</label>
+          <input type="email" id="email" name="email" maxlength="120" autocomplete="email" inputmode="email" placeholder="name@example.com" dir="ltr" /></div>
+        <div class="field"><label for="message">ההודעה</label>
+          <textarea id="message" name="message" maxlength="2000" placeholder="ספרו מה אתם מחפשים – אתגר, רעיון, פרויקט..." dir="rtl"></textarea></div>
+        <div class="hp-field" aria-hidden="true"><label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" /></div>
+        <button type="submit" class="btn1 form-submit">שליחה</button>
+        <div class="form-status" id="formStatus" aria-live="polite"></div>
+      </form>
+
+      <!-- direct contact -->
+      <div class="contact-side reveal">
+        <a class="wa-circle" href="https://wa.me/972547105176" target="_blank" rel="noopener" aria-label="וואטסאפ">
+          <svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.93 4 4.98 8.95 4.98 15.06c0 2.05.56 4.05 1.62 5.8L4 28l7.3-2.55a11.04 11.04 0 0 0 4.74 1.07h.01c6.11 0 11.06-4.95 11.06-11.06C27.1 8.95 22.15 4 16.04 4zm0 20.2c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-4.33 1.51 1.45-4.22-.2-.32a9.16 9.16 0 0 1-1.4-4.87c0-5.06 4.12-9.18 9.19-9.18 2.45 0 4.76.96 6.49 2.69a9.13 9.13 0 0 1 2.69 6.5c0 5.06-4.12 9.18-9.18 9.18zm5.04-6.87c-.28-.14-1.63-.8-1.88-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.46l-.52-.01c-.18 0-.46.07-.7.35-.25.28-.94.92-.94 2.24 0 1.32.96 2.6 1.1 2.78.14.18 1.9 2.9 4.6 4.06.64.28 1.14.44 1.53.57.64.2 1.23.18 1.69.11.52-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.12-.25-.19-.53-.33z"/></svg>
+        </a>
+        <p class="wa-cta">דברו איתי ישירות בוואטסאפ</p>
+        <a class="wa-phone" href="tel:+972547105176" dir="ltr">054-710-5176</a>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/michal-bar-9100825b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg>
+          </a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="mailto:barmichal100@gmail.com" aria-label="אימייל">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap foot">
-    <div class="brand">
-      <div class="logo">מ</div>
-      <div><b>מיכל בר</b><small>ייעוץ · פיתוח מוצר · אוטומציה</small></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <div class="brand">
+        <div class="logo">מ</div>
+        <div><b>מיכל בר</b><small>ייעוץ · פיתוח מוצר · אוטומציה</small></div>
+      </div>
+      <p>פתרונות טכנולוגיים, מוצריים ועסקיים – מהבנת הצורך ועד המימוש</p>
     </div>
-    <div>© <span class="mono">2026</span> מיכל בר · כל הזכויות שמורות</div>
-    <div class="fsoc">
-      <a href="https://www.linkedin.com/in/michal-bar-9100825b/" target="_blank">LinkedIn</a>
-      <a href="mailto:barmichal100@gmail.com">אימייל</a>
+    <div class="footer-col">
+      <h4>ניווט</h4>
+      <a href="#services">שירותים</a>
+      <a href="#about">עליי</a>
+      <a href="#projects">פרויקטים</a>
+      <a href="#process">התהליך</a>
+      <a href="#testimonials">לקוחות ממליצים</a>
+      <a href="#contact">צרו קשר</a>
     </div>
+    <div class="footer-col">
+      <h4>צרו קשר</h4>
+      <a href="tel:+972547105176" dir="ltr">054-710-5176</a>
+      <a href="mailto:barmichal100@gmail.com">barmichal100@gmail.com</a>
+      <a href="https://www.linkedin.com/in/michal-bar-9100825b/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span class="mono">2026</span> מיכל בר · כל הזכויות שמורות</span>
+    <span>ייעוץ · פיתוח מוצר · אוטומציה</span>
   </div>
 </footer>
 
@@ -497,6 +582,32 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
   var sObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
     e.target.querySelectorAll('.stat b').forEach(countUp);sObs.unobserve(e.target);}});},{threshold:.5});
   var stats=document.querySelector('.stats');if(stats)sObs.observe(stats);
+</script>
+
+<!-- contact form -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+    var form=document.getElementById('contactForm');
+    if(!form || typeof emailjs==='undefined')return;
+    emailjs.init({ publicKey: "v98_thsqHFYtMxHPD" });
+    var status=document.getElementById('formStatus');
+    var btn=form.querySelector('.form-submit');
+    function msg(cls,t){status.className='form-status '+cls;status.textContent=t;}
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(form.website.value){return;} // honeypot
+      var name=(form.name.value||'').trim(), phone=(form.phone.value||'').trim(), email=(form.email.value||'').trim();
+      if(name.length<2){msg('err','אנא הזינו שם');return;}
+      if(!phone && !email){msg('err','אנא השאירו טלפון או מייל כדי שאחזור אליכם');return;}
+      if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
+      var orig=btn.textContent; btn.textContent='שולח…'; btn.disabled=true; msg('','');
+      emailjs.sendForm('service_y3jd01l','template_x4ylt16',form)
+        .then(function(){msg('ok','נשלח! אחזור אליכם בהקדם 🌿');form.reset();})
+        .catch(function(err){console.error('EmailJS error:',err);msg('err','שגיאה בשליחה — נסו שוב או דברו איתי בוואטסאפ');})
+        .finally(function(){btn.textContent=orig;btn.disabled=false;});
+    });
+  });
 </script>
 </body>
 </html>
