@@ -82,7 +82,7 @@ h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .btn2{background:rgba(227,164,92,.12);border:1px solid rgba(227,164,92,.55);color:var(--ink);font-weight:600;font-size:18px;padding:16px 28px;border-radius:12px;transition:background .2s,border-color .2s;}
 .btn2:hover{background:rgba(227,164,92,.22);border-color:var(--accent);}
 
-/* hero visual — warm editorial code card */
+/* hero visual – warm editorial code card */
 .glass{background:linear-gradient(180deg,rgba(36,28,48,.92),rgba(24,19,32,.92));border:1px solid var(--line2);border-radius:18px;
   box-shadow:0 40px 90px -40px rgba(0,0,0,.85);overflow:hidden;}
 .term-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid var(--line);}
@@ -129,6 +129,8 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .portrait span{font-family:var(--mono);font-size:13px;}
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:56% 50%;display:block;}
 .about-grid p{color:var(--soft);font-size:17.5px;margin-top:16px;}
+.about-grid em{font-style:normal;color:var(--accent);font-weight:700;}
+.about-note{font-size:15px !important;color:var(--muted) !important;margin-top:18px !important;}
 .sig{margin-top:24px;font-family:var(--serif);font-weight:700;font-size:20px;}
 .sig small{display:block;color:var(--muted);font-weight:400;font-size:13.5px;margin-top:4px;}
 
@@ -293,19 +295,19 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
     <div class="reveal">
       <span class="eyebrow"><span class="idx">01</span> <span class="ttl">שירותים</span></span>
       <h2 class="s-head">כל מה שצריך כדי להפוך טכנולוגיה ליתרון</h2>
-      <p class="s-lead">משלב אסטרטגיה, פיתוח ואוטומציה — בליווי אישי מההתחלה ועד התוצאה.</p>
+      <p class="s-lead">משלב אסטרטגיה, פיתוח ואוטומציה – בליווי אישי מההתחלה ועד התוצאה.</p>
     </div>
     <div class="cards">
       <div class="card reveal">
         <div class="ic mono">&lt;/&gt;</div>
         <h3>פיתוח מוצרים</h3>
-        <p>ממוצר ראשוני ועד מערכת מלאה — אפיון, עיצוב ופיתוח מקצה לקצה.</p>
+        <p>ממוצר ראשוני ועד מערכת מלאה – אפיון, עיצוב ופיתוח מקצה לקצה.</p>
         <ul><li>אפיון ועיצוב מוצר</li><li>פיתוח מוצרים ומערכות</li><li>אתרים ואפליקציות</li></ul>
       </div>
       <div class="card reveal">
         <div class="ic">◆</div>
         <h3>ייעוץ עסקי וטכנולוגי</h3>
-        <p>הבנת הצורך השורשי ובניית פתרון מדויק — בעולמות הלקוח, הביזנס והטכנולוגיה.</p>
+        <p>הבנת הצורך השורשי ובניית פתרון מדויק – בעולמות הלקוח, הביזנס והטכנולוגיה.</p>
         <ul><li>מיפוי צרכים וכאבים</li><li>אסטרטגיה וארכיטקטורה</li><li>ליווי קבלת החלטות</li></ul>
       </div>
       <div class="card reveal">
@@ -325,10 +327,13 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
       <div class="portrait reveal"><img src="michal.jpg" alt="מיכל בר" /></div>
       <div class="reveal">
         <span class="eyebrow"><span class="idx">02</span> <span class="ttl">עליי</span></span>
-        <h2 class="s-head">היי, אני מיכל</h2>
-        <p>אחרי 20+ שנים בעולם ההייטק — בפיתוח, ניהול מוצר וטכנולוגיה — אני עוזרת לעסקים וליזמים לתרגם רעיונות ואתגרים לפתרונות טכנולוגיים פשוטים שעובדים.</p>
-        <p>אני מאמינה בגישה אישית, בשקיפות מלאה ובלעשות דברים נכון — בלי באזז־וורדס, עם פוקוס על מה שבאמת מקדם אותך.</p>
-        <div class="sig">מיכל בר<small>ייעוץ · פיתוח · אוטומציה</small></div>
+        <h2 class="s-head">היי, אני מיכל בר</h2>
+        <p>במהותי, יש לי יכולת נדירה להבין סיטואציות מורכבות – מהר ולעומק. לזהות איפה הבעיה האמיתית, למה היא קורה ומה התהליכים שמאחוריה, ומשם לבנות את הדרך הנכונה לשפר ולהביא ערך.</p>
+        <p>לצד זה יש לי אינטואיציה מוצרית נדירה: מתארים לי בעיה – ואני כבר רואה איך הפתרון צריך להיראות, ומאפיינת אותו במהירות ובדיוק. כי הקושי האמיתי הוא לא הבנייה – אלא לדעת <em>מה</em> נכון לבנות ו<em>איך</em> הוא צריך להיראות.</p>
+        <p>אני חושבת בצורה יצירתית, ולכן הפתרונות שלי מדויקים, מקוריים ונכונים – כאלה שמזיזים את המחט. ומכיוון שאני מחוברת לעיצוב ולאסתטיקה, גם המסר וגם הנראות חשובים לי לא פחות מהתוכן.</p>
+        <p>מעל 20 שנה בעולמות ההייטק והטכנולוגיה – מהיחידה הטכנולוגית של חיל המודיעין בתחום הסייבר, דרך ייעוץ וניהול לקוחות, ועד תפקידי ניהול בכירים בסטארט-אפ סייבר, שם הובלתי את מערך ה-<span dir="ltr">Customer Success</span> והשירותים המקצועיים – באחריות מלאה על כלל הלקוחות והפרויקטים. היום אני מפתחת מוצרים ופתרונות לעסקים.</p>
+        <p class="about-note">ומעל הכל – חיבור אמיתי לאנשים והקשבה לצורך שמאחורי המילים. אנגלית ברמת שפת אם · יכולות הצגה ופרזנטציה גבוהות.</p>
+        <div class="sig">מיכל בר<small>ייעוץ · פיתוח מוצר · אוטומציה</small></div>
       </div>
     </div>
     <div class="stats reveal" style="margin-top:56px;">
@@ -351,11 +356,11 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
     <div class="proj">
       <a class="pcard reveal" href="https://makombateva.com" target="_blank">
         <div class="thumb">makombateva.com</div>
-        <div class="body"><span class="tag">אתר · עיצוב · פיתוח</span><h4>מקום בטבע</h4><p>אתר תדמית ונחיתה לאירוח אירועים — עיצוב, פיתוח, גלריה ועמוד מדריך מאובטח.</p></div>
+        <div class="body"><span class="tag">אתר · עיצוב · פיתוח</span><h4>מקום בטבע</h4><p>אתר תדמית ונחיתה לאירוח אירועים – עיצוב, פיתוח, גלריה ועמוד מדריך מאובטח.</p></div>
       </a>
       <a class="pcard reveal" href="#">
         <div class="thumb">בקרוב</div>
-        <div class="body"><span class="tag">אוטומציה</span><h4>פרויקט לדוגמה</h4><p>מקום לפרויקט נוסף — נמלא יחד עם תיאור ותוצאות.</p></div>
+        <div class="body"><span class="tag">אוטומציה</span><h4>פרויקט לדוגמה</h4><p>מקום לפרויקט נוסף – נמלא יחד עם תיאור ותוצאות.</p></div>
       </a>
     </div>
   </div>
@@ -387,7 +392,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
     <div class="quotes">
       <div class="quote reveal"><div class="stars">★★★★★</div><p>"מיכל הבינה בדיוק מה היה חסר לנו ובנתה פתרון שחסך לנו שעות עבודה בכל שבוע."</p><div class="who"><div class="av">א</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
       <div class="quote reveal"><div class="stars">★★★★★</div><p>"מקצועית, אישית וזמינה. קיבלנו אתר מהמם ותהליך נעים מההתחלה ועד הסוף."</p><div class="who"><div class="av">ב</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
-      <div class="quote reveal"><div class="stars">★★★★★</div><p>"היכולת לחבר בין הבנה עסקית לטכנולוגיה היא נדירה — בדיוק מה שחיפשנו."</p><div class="who"><div class="av">ג</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>"היכולת לחבר בין הבנה עסקית לטכנולוגיה היא נדירה – בדיוק מה שחיפשנו."</p><div class="who"><div class="av">ג</div><div><b>שם הממליץ</b><small>תפקיד · חברה</small></div></div></div>
     </div>
   </div>
 </section>
@@ -398,7 +403,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
     <div class="cta reveal">
       <span class="eyebrow" style="justify-content:center;"><span class="idx">06</span> <span class="ttl">צרו קשר</span></span>
       <h2>יש לכם אתגר טכנולוגי?<br>בואו נדבר.</h2>
-      <p>שיחת היכרות ראשונית — ללא התחייבות.</p>
+      <p>שיחת היכרות ראשונית – ללא התחייבות.</p>
       <div class="cta-row">
         <a class="btn1" href="https://wa.me/972547105176" target="_blank">וואטסאפ</a>
         <a class="btn2" href="mailto:barmichal100@gmail.com">אימייל</a>
