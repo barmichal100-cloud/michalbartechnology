@@ -50,7 +50,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0
 .burger.open span:nth-child(2){opacity:0;}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .brand{display:flex;align-items:center;gap:13px;}
-.logo{width:44px;height:44px;border-radius:13px;background:var(--grad);display:grid;place-items:center;color:#241307;font-weight:700;font-size:19px;font-family:var(--serif);}
+.logo{width:46px;height:46px;border-radius:13px;object-fit:cover;display:block;}
 .brand b{font-family:var(--serif);font-weight:700;font-size:19px;display:block;line-height:1.1;}
 .brand small{color:var(--muted);font-size:12.5px;letter-spacing:.2px;}
 .nav-links{display:flex;gap:30px;align-items:center;color:var(--soft);font-size:15px;font-weight:500;}
@@ -303,7 +303,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
   <div class="wrap">
     <nav>
       <a class="brand" href="#top">
-        <div class="logo">מ</div>
+        <img class="logo" src="logo.png" alt="מיכל בר" />
         <div><b>מיכל בר</b><small>ייעוץ · פיתוח מוצר · אוטומציה</small></div>
       </a>
       <div class="nav-links" id="navlinks">
@@ -506,7 +506,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
   <div class="wrap footer-inner">
     <div class="footer-brand">
       <div class="brand">
-        <div class="logo">מ</div>
+        <img class="logo" src="logo.png" alt="מיכל בר" />
         <div><b>מיכל בר</b><small>ייעוץ · פיתוח מוצר · אוטומציה</small></div>
       </div>
       <p>פתרונות טכנולוגיים, מוצריים ועסקיים – מהבנת הצורך ועד המימוש</p>
