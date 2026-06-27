@@ -112,11 +112,11 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 
 /* SERVICES */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px;}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px 24px;transition:border-color .25s,transform .25s;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px 24px;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;}
 .card:hover{border-color:var(--accent);transform:translateY(-4px);}
 .card .ic{width:48px;height:48px;border-radius:13px;background:rgba(227,164,92,.12);color:var(--accent);display:grid;place-items:center;margin-bottom:16px;font-family:var(--mono);font-size:18px;}
 .card h3{font-family:var(--serif);font-size:22px;font-weight:700;}
-.card p{color:var(--muted);font-size:15px;margin-top:8px;}
+.card p{color:var(--muted);font-size:15px;margin-top:8px;flex:1;}
 .card ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:7px;}
 .card li{color:var(--soft);font-size:14px;padding-inline-start:20px;position:relative;}
 .card li::before{content:"";position:absolute;inset-inline-start:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent);}
@@ -274,7 +274,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
           <span class="ln"><span>פתרון טכנולוגי</span></span>
           <span class="l2"><span class="rot"><span class="on">מדויק.</span><span>יצירתי.</span><span>נכון.</span><span>שעובד.</span></span></span>
         </h1>
-        <p class="sub">מזהה את הצורך השורשי ובונה את הפתרון הנכון –<br>מוצר, תהליך, ייעוץ או אוטומציה. מקצה לקצה.<br>בשילוב נדיר של ניסיון טכנולוגי, מוצרי, פיתוחי,<br>ושנים של עבודה מול לקוחות בשטח.</p>
+        <p class="sub">מזהה את הצורך השורשי ובונה את הפתרון הנכון –<br>מוצר, תהליך, ייעוץ או אוטומציה. מקצה לקצה.<br>בשילוב נדיר של ניסיון טכנולוגי, מוצרי, פיתוחי,<br>ושנים של עבודה מול לקוחות בשטח</p>
         <div class="cta-row">
           <a class="btn1 magnetic" href="#contact">בואו נדבר →</a>
           <a class="btn2 magnetic" href="#services">השירותים שלי</a>
@@ -295,20 +295,20 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);}
     <div class="reveal">
       <span class="eyebrow"><span class="idx">01</span> <span class="ttl">שירותים</span></span>
       <h2 class="s-head">כל מה שצריך כדי להפוך טכנולוגיה ליתרון</h2>
-      <p class="s-lead">משלב אסטרטגיה, פיתוח ואוטומציה – בליווי אישי מההתחלה ועד התוצאה.</p>
+      <p class="s-lead">משלב אסטרטגיה, אפיון מדויק, פיתוח ואוטומציה – בליווי אישי מההתחלה ועד התוצאה.</p>
     </div>
     <div class="cards">
       <div class="card reveal">
         <div class="ic mono">&lt;/&gt;</div>
         <h3>פיתוח מוצרים</h3>
-        <p>ממוצר ראשוני ועד מערכת מלאה – אפיון, עיצוב ופיתוח מקצה לקצה.</p>
+        <p>מאפיון ראשוני ועד מערכת מלאה – עיצוב ופיתוח מקצה לקצה.</p>
         <ul><li>אפיון ועיצוב מוצר</li><li>פיתוח מוצרים ומערכות</li><li>אתרים ואפליקציות</li></ul>
       </div>
       <div class="card reveal">
         <div class="ic">◆</div>
         <h3>ייעוץ עסקי וטכנולוגי</h3>
         <p>הבנת הצורך השורשי ובניית פתרון מדויק – בעולמות הלקוח, הביזנס והטכנולוגיה.</p>
-        <ul><li>מיפוי צרכים וכאבים</li><li>אסטרטגיה וארכיטקטורה</li><li>ליווי קבלת החלטות</li></ul>
+        <ul><li>מיפוי צרכים וכאבים</li><li>אסטרטגיה ותהליכים</li><li>ליווי קבלת החלטות</li></ul>
       </div>
       <div class="card reveal">
         <div class="ic">⚙</div>
