@@ -154,7 +154,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .step p{color:var(--muted);font-size:14.5px;margin-top:6px;}
 
 /* PROJECTS */
-.proj{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:46px;}
+.proj{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px;}
 .pcard{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);transition:transform .25s,border-color .25s;}
 .pcard:hover{transform:translateY(-4px);border-color:var(--accent);}
 .pcard .thumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#2a2032,#1a1422);display:grid;place-items:center;color:var(--muted);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px;overflow:hidden;}
@@ -162,7 +162,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .pcard .body{padding:22px 24px;}
 .pcard .tags{display:flex;flex-wrap:wrap;gap:7px;}
 .pcard .tag{display:inline-block;background:rgba(227,164,92,.10);color:var(--accent);font-size:12.5px;font-weight:600;padding:4px 12px;border-radius:999px;}
-.pcard .visit{display:inline-flex;align-items:center;gap:5px;margin-top:14px;color:var(--accent);font-family:var(--mono);font-size:12.5px;font-weight:600;}
+.pcard .visit{display:inline-flex;align-items:center;gap:5px;margin-top:14px;color:var(--accent);font-size:14px;font-weight:700;}
 .pcard h4{font-family:var(--serif);font-size:22px;font-weight:700;margin:12px 0 4px;}
 .pcard p{color:var(--muted);font-size:14.5px;}
 
@@ -430,16 +430,20 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
       <a class="pcard reveal" href="https://makombateva.com" target="_blank" rel="noopener">
         <div class="thumb"><img src="proj-makombateva.jpg" alt="מקום בטבע — אתר תדמית" loading="lazy"></div>
         <div class="body">
-          <div class="tags"><span class="tag">עיצוב</span><span class="tag">פיתוח</span><span class="tag">אתר תדמית</span></div>
+          <div class="tags"><span class="tag">אפיון</span><span class="tag">עיצוב</span><span class="tag">פיתוח</span><span class="tag">אתר תדמית</span></div>
           <h4>מקום בטבע</h4>
           <p>אתר תדמית מלא לעסק אירוח בטבע — אפיון, עיצוב ופיתוח מקצה לקצה: דף נחיתה, גלריית תמונות וסרטונים, עמוד מדריך אורחים מאובטח וטופס פנייה חכם.</p>
           <span class="visit">צפו באתר ↗</span>
         </div>
       </a>
-      <a class="pcard reveal" href="#">
+      <div class="pcard reveal">
         <div class="thumb">בקרוב</div>
-        <div class="body"><span class="tag">אוטומציה</span><h4>פרויקט לדוגמה</h4><p>מקום לפרויקט נוסף – נמלא יחד עם תיאור ותוצאות.</p></div>
-      </a>
+        <div class="body"><div class="tags"><span class="tag">בקרוב</span></div><h4>פרויקט שני</h4><p>נמלא יחד — תיאור, סוג ותוצאות.</p></div>
+      </div>
+      <div class="pcard reveal">
+        <div class="thumb">בקרוב</div>
+        <div class="body"><div class="tags"><span class="tag">בקרוב</span></div><h4>פרויקט שלישי</h4><p>נמלא יחד — תיאור, סוג ותוצאות.</p></div>
+      </div>
     </div>
   </div>
 </section>
