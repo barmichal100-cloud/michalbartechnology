@@ -614,7 +614,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
       if(!phone && !email){msg('err','אנא השאירו טלפון או מייל כדי שאחזור אליכם');return;}
       if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
       var orig=btn.textContent; btn.textContent='שולח…'; btn.disabled=true; msg('','');
-      emailjs.sendForm('service_y3jd01l','template_x4ylt16',form)
+      emailjs.sendForm('service_y3jd01l','template_mo4oe7j',form)
         .then(function(){msg('ok','ההודעה נשלחה — אחזור אליכם בהקדם ✓');form.reset();})
         .catch(function(err){console.error('EmailJS error:',err);msg('err','שגיאה בשליחה — נסו שוב או דברו איתי בוואטסאפ');})
         .finally(function(){btn.textContent=orig;btn.disabled=false;});
