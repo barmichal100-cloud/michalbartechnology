@@ -195,6 +195,15 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .form-status{margin-top:14px;font-size:14.5px;text-align:center;min-height:1.2em;}
 .form-status.ok{color:var(--accent);font-weight:600;}
 .form-status.err{color:#e69277;}
+.contact-form.is-done > *:not(.form-status){display:none;}
+.contact-form.is-done .form-status{margin-top:0;}
+.status-card{padding:8px 0;}
+.status-icon{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;background:rgba(227,164,92,.14);}
+.status-icon svg{width:27px;height:27px;}
+.status-card h4{font-family:var(--serif);font-size:22px;color:var(--ink);margin:0 0 6px;}
+.status-card p{color:var(--soft);font-size:14.5px;font-weight:400;margin:0 0 18px;}
+.status-action{background:transparent;border:1px solid var(--line2);color:var(--ink);font-family:inherit;font-size:15px;font-weight:600;padding:11px 26px;border-radius:10px;cursor:pointer;transition:border-color .2s,background .2s;}
+.status-action:hover{border-color:var(--accent);background:rgba(227,164,92,.08);}
 .contact-side{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   background:radial-gradient(70% 80% at 50% 0%,rgba(227,164,92,.08),transparent 60%),var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px 28px;}
 .wa-circle{width:88px;height:88px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 0 44px -8px rgba(37,211,102,.55);transition:transform .25s;}
@@ -606,20 +615,26 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
     var status=document.getElementById('formStatus');
     var btn=form.querySelector('.form-submit');
     function msg(cls,t){status.className='form-status '+cls;status.textContent=t;}
+    function showDone(){
+      status.className='form-status ok';
+      status.innerHTML='<div class="status-card"><div class="status-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></div><h4>תודה!</h4><p>ההודעה התקבלה — אחזור אליכם בהקדם</p><button type="button" class="status-action">שליחת הודעה נוספת</button></div>';
+      form.classList.add('is-done');
+      var again=status.querySelector('.status-action');
+      if(again){again.addEventListener('click',function(){form.classList.remove('is-done');status.className='form-status';status.innerHTML='';form.reset();});}
+    }
     form.addEventListener('submit',function(e){
       e.preventDefault();
       if(form.website.value){return;} // honeypot
       var name=(form.name.value||'').trim(), phone=(form.phone.value||'').trim(), email=(form.email.value||'').trim();
       if(name.length<2){msg('err','אנא הזינו שם');return;}
-      if(!phone && !email){msg('err','אנא השאירו טלפון או מייל כדי שאחזור אליכם');return;}
-      if(phone){
-        var digits=phone.replace(/\D/g,'');
-        if(!/^[\d\s\-+()]+$/.test(phone) || digits.length<9 || digits.length>13){msg('err','מספר טלפון לא תקין');return;}
-      }
-      if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
+      if(!phone){msg('err','אנא הזינו מספר טלפון');return;}
+      var digits=phone.replace(/\D/g,'');
+      if(!/^[\d\s\-+()]+$/.test(phone) || digits.length<9 || digits.length>13){msg('err','מספר טלפון לא תקין');return;}
+      if(!email){msg('err','אנא הזינו כתובת מייל');return;}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
       var orig=btn.textContent; btn.textContent='שולח…'; btn.disabled=true; msg('','');
       emailjs.sendForm('service_y3jd01l','template_mo4oe7j',form)
-        .then(function(){msg('ok','ההודעה נשלחה — אחזור אליכם בהקדם ✓');form.reset();})
+        .then(function(){showDone();})
         .catch(function(err){console.error('EmailJS error:',err);msg('err','שגיאה בשליחה — נסו שוב או דברו איתי בוואטסאפ');})
         .finally(function(){btn.textContent=orig;btn.disabled=false;});
     });
