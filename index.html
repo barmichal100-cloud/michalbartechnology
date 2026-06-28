@@ -629,7 +629,8 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
       if(name.length<2){msg('err','אנא הזינו שם');return;}
       if(!phone){msg('err','אנא הזינו מספר טלפון');return;}
       var digits=phone.replace(/\D/g,'');
-      if(!/^[\d\s\-+()]+$/.test(phone) || digits.length<9 || digits.length>13){msg('err','מספר טלפון לא תקין');return;}
+      var validPhone=/^[\d\s\-+()]+$/.test(phone) && (/^0\d{8,9}$/.test(digits) || /^972\d{9}$/.test(digits));
+      if(!validPhone){msg('err','מספר טלפון לא תקין');return;}
       if(!email){msg('err','אנא הזינו כתובת מייל');return;}
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
       var orig=btn.textContent; btn.textContent='שולח…'; btn.disabled=true; msg('','');
