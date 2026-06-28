@@ -612,6 +612,10 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
       var name=(form.name.value||'').trim(), phone=(form.phone.value||'').trim(), email=(form.email.value||'').trim();
       if(name.length<2){msg('err','אנא הזינו שם');return;}
       if(!phone && !email){msg('err','אנא השאירו טלפון או מייל כדי שאחזור אליכם');return;}
+      if(phone){
+        var digits=phone.replace(/\D/g,'');
+        if(!/^[\d\s\-+()]+$/.test(phone) || digits.length<9 || digits.length>13){msg('err','מספר טלפון לא תקין');return;}
+      }
       if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
       var orig=btn.textContent; btn.textContent='שולח…'; btn.disabled=true; msg('','');
       emailjs.sendForm('service_y3jd01l','template_mo4oe7j',form)
