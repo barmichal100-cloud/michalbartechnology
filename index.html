@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>מיכל בר · פתרונות טכנולוגיים</title>
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="apple-touch-icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -268,6 +270,10 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 @media(prefers-reduced-motion:reduce){.scroll-hint .arr{animation:none;}}
 
 @media(max-width:860px){
+  /* mobile robustness: drop heavy compositing + never hide content behind JS */
+  .aurora,.spot{display:none !important;}
+  .reveal{opacity:1 !important;transform:none !important;}
+  .ln>span{transform:none !important;}
   .burger{display:flex;}
   .nav-links{position:fixed;top:75px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;
     background:rgba(13,10,18,.99);border-bottom:1px solid var(--line2);
