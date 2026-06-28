@@ -270,15 +270,18 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 @media(prefers-reduced-motion:reduce){.scroll-hint .arr{animation:none;}}
 
 @media(max-width:860px){
-  /* mobile robustness: drop heavy compositing + never hide content behind JS */
+  /* mobile robustness: drop EVERYTHING that can break GPU compositing (causes black screen) */
   .aurora,.spot{display:none !important;}
   .reveal{opacity:1 !important;transform:none !important;}
   .ln>span{transform:none !important;}
+  *{animation:none !important;}
+  h1 .hl,.mega .rot>span,.stat b,.tl-head .tl-num,.kicker b{
+    background:none !important;-webkit-background-clip:border-box !important;background-clip:border-box !important;
+    -webkit-text-fill-color:var(--accent) !important;color:var(--accent) !important;}
   .burger{display:flex;}
-  .nav-links{position:fixed;top:75px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;
-    background:rgba(13,10,18,.99);border-bottom:1px solid var(--line2);
-    padding:6px 28px 20px;transform:translateY(-135%);transition:transform .35s cubic-bezier(.2,.7,.2,1);}
-  .nav-links.open{transform:none;}
+  .nav-links{position:fixed;top:64px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;
+    background:#13101a;border-bottom:1px solid var(--line2);padding:6px 28px 20px;display:none;}
+  .nav-links.open{display:flex;}
   .nav-links a{padding:15px 2px;border-bottom:1px solid var(--line);font-size:17px;color:var(--ink);font-weight:600;}
   .nav-links .nav-cta{margin-top:16px;border:1px solid var(--accent);text-align:center;border-radius:12px;padding:13px;}
   .hero-in{grid-template-columns:1fr;min-height:auto;}
