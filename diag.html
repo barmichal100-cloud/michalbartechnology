@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אבחון · מיכל בר</title>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Yarden';src:url('fonts/yarden-regular.woff2') format('woff2');font-weight:400;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0B0910;color:#F3ECDF;font-family:Arial,sans-serif;line-height:1.5;}
+.b{padding:26px 18px;border-bottom:2px solid #2E2740;font-size:21px;}
+.n{display:inline-block;background:#E3A45C;color:#000;border-radius:6px;padding:2px 10px;font-weight:700;margin-left:8px;}
+.grad{background:linear-gradient(120deg,#EEBC7C,#C76B45);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}
+.blur-box{width:120px;height:70px;border-radius:50%;background:#E3A45C;filter:blur(40px);margin-top:10px;}
+.radial{height:70px;margin-top:10px;background:radial-gradient(circle at 50% 50%,#E3A45C,transparent 70%);}
+.clip-img{width:60px;height:60px;border-radius:12px;object-fit:cover;margin-top:10px;}
+.sticky-test{position:sticky;top:0;background:#1B1426;padding:10px 18px;border-bottom:1px solid #4A3E5C;}
+</style>
+</head>
+<body>
+  <div class="sticky-test"><span class="n">0</span> סרגל sticky — אם רואים את זה למעלה זה תקין</div>
+
+  <div class="b"><span class="n">1</span> טקסט רגיל (Arial). אם רואים את זה — הרינדור הבסיסי עובד.</div>
+
+  <div class="b" style="font-family:'Assistant'"><span class="n">2</span> Google Font — Assistant. עברית: שלום עולם.</div>
+
+  <div class="b" style="font-family:'Yarden'"><span class="n">3</span> פונט Yarden מקומי — שלום עולם.</div>
+
+  <div class="b"><span class="n">4</span> גרדיאנט-טקסט: <span class="grad">פתרון טכנולוגי</span></div>
+
+  <div class="b"><span class="n">5</span> רקע radial-gradient:<div class="radial"></div></div>
+
+  <div class="b"><span class="n">6</span> filter:blur:<div class="blur-box"></div></div>
+
+  <div class="b"><span class="n">7</span> תמונת לוגו: <img class="clip-img" src="logo.png" alt="logo"></div>
+
+  <div class="b"><span class="n">8</span> סוף. אם הגעת לפה והכל נראה — הרינדור הבסיסי מושלם.</div>
+</body>
+</html>
