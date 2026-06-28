@@ -193,7 +193,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .hp-field{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;}
 .form-submit{width:100%;margin-top:6px;border:0;cursor:pointer;}
 .form-status{margin-top:14px;font-size:14.5px;text-align:center;min-height:1.2em;}
-.form-status.ok{color:#5ad19a;}
+.form-status.ok{color:var(--accent);font-weight:600;}
 .form-status.err{color:#e69277;}
 .contact-side{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   background:radial-gradient(70% 80% at 50% 0%,rgba(227,164,92,.08),transparent 60%),var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px 28px;}
@@ -615,7 +615,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
       if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
       var orig=btn.textContent; btn.textContent='שולח…'; btn.disabled=true; msg('','');
       emailjs.sendForm('service_y3jd01l','template_x4ylt16',form)
-        .then(function(){msg('ok','נשלח! אחזור אליכם בהקדם 🌿');form.reset();})
+        .then(function(){msg('ok','ההודעה נשלחה — אחזור אליכם בהקדם ✓');form.reset();})
         .catch(function(err){console.error('EmailJS error:',err);msg('err','שגיאה בשליחה — נסו שוב או דברו איתי בוואטסאפ');})
         .finally(function(){btn.textContent=orig;btn.disabled=false;});
     });
