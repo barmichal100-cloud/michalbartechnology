@@ -190,7 +190,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .field input:focus,.field textarea:focus{border-color:var(--accent);}
 .field textarea{min-height:108px;resize:vertical;}
 .field input::placeholder,.field textarea::placeholder{color:#6f6557;}
-.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.hp-field{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;}
 .form-submit{width:100%;margin-top:6px;border:0;cursor:pointer;}
 .form-status{margin-top:14px;font-size:14.5px;text-align:center;min-height:1.2em;}
 .form-status.ok{color:#5ad19a;}
