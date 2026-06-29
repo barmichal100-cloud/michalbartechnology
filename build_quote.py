@@ -190,7 +190,7 @@ ul.incl li{margin:.12rem 0;}
         <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=barmichal100@gmail.com&amp;su=הצעת+מחיר+-+מיכל+בר" target="_blank" rel="noopener">barmichal100@gmail.com</a><br>
         <a class="li-link" href="https://www.linkedin.com/in/michal-bar-9100825b/">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg>
-          התחברו · <span dir="ltr">LinkedIn</span>
+          התחברו בלינקדאין
         </a>
       </div>
       <div class="sign">בברכה,<br><span class="name" contenteditable="true">מיכל בר</span></div>
