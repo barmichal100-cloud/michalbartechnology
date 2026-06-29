@@ -10,6 +10,7 @@ _redact_ig.py
 quote-template.html
 build_business.py
 business-details.html
+*.pdf
 _preview.jpg
 _*.jpg
 /logo options/
