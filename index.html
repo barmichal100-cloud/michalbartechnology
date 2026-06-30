@@ -172,10 +172,10 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 
 /* TESTIMONIALS */
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px;}
-.quote{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px;}
+.quote{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;}
 .quote .stars{color:var(--accent);font-size:14px;letter-spacing:2px;}
 .quote p{color:var(--soft);font-size:16px;margin:12px 0 18px;line-height:1.7;}
-.quote .who{display:flex;align-items:center;gap:12px;}
+.quote .who{display:flex;align-items:center;gap:12px;margin-top:auto;}
 .quote .av{width:40px;height:40px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#241307;font-weight:700;font-family:var(--serif);}
 .quote .who b{font-size:14.5px;}.quote .who small{display:block;color:var(--muted);font-size:13.5px;}
 
