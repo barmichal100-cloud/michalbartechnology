@@ -68,9 +68,10 @@ table.items td{padding:.4rem .9rem;border-bottom:1px solid var(--paper-3);vertic
 .rm{cursor:pointer;color:var(--accent-soft);border:0;background:none;font-size:1.05rem;line-height:1;}
 .rm:hover{color:var(--accent);}
 tfoot td{padding:.32rem .9rem;font-variant-numeric:tabular-nums;}
-.subtotal-row td,.discount-row td{color:var(--ink-soft);}
+.subtotal-row td,.discount-row td,.vat-row td{color:var(--ink-soft);}
 .discount-val{color:var(--accent);text-align:left;white-space:nowrap;}
 .disc-pct{color:var(--accent);font-weight:700;}
+.vat-pct{font-weight:700;}
 .total-row td{border-top:2.5px solid var(--accent);font-weight:700;font-size:1.22rem;padding-top:.5rem;}
 .total-val{color:var(--accent);text-align:left;}
 
@@ -147,7 +148,8 @@ ul.incl li{margin:.12rem 0;}
       <tfoot>
         <tr class="subtotal-row" id="subtotalRow"><td>סכום ביניים</td><td class="col-price" id="subtotal">₪0</td><td></td></tr>
         <tr class="discount-row" id="discountRow"><td>הנחה <span class="disc-pct" contenteditable="true">10</span>%</td><td class="col-price discount-val" id="discountVal">−₪0</td><td class="col-x"><button class="rm" onclick="removeDiscount()" title="הסר הנחה">✕</button></td></tr>
-        <tr class="total-row"><td>סה״כ לתשלום</td><td class="col-price total-val" id="total">₪0</td><td></td></tr>
+        <tr class="vat-row"><td>מע״מ <span class="vat-pct" contenteditable="true">18</span>%</td><td class="col-price" id="vatVal">₪0</td><td></td></tr>
+        <tr class="total-row"><td>סה״כ לתשלום (כולל מע״מ)</td><td class="col-price total-val" id="total">₪0</td><td></td></tr>
       </tfoot>
     </table>
     <div class="add-row">
@@ -165,7 +167,6 @@ ul.incl li{margin:.12rem 0;}
 
     <div class="section-h">תנאים</div>
     <div class="terms" contenteditable="true">
-      <p>• המחירים אינם כוללים מע״מ.</p>
       <p>• המחירים הם עבור עבודתי בלבד. עלויות נוספות הנדרשות לפרויקט – כגון אחסון (שרת/DB), רכישת דומיין או שירותי צד שלישי – אינן כלולות.</p>
       <p>• תנאי תשלום: 40% מקדמה לתחילת העבודה, 30% באבן דרך מוסכמת, 30% בסיום ולפני המסירה.</p>
       <p>• לוחות הזמנים יתואמו לאחר השלמת האפיון.</p>
@@ -206,19 +207,21 @@ ul.incl li{margin:.12rem 0;}
       document.querySelectorAll('#rows .price').forEach(function(c){
         subtotal += parseFloat((c.textContent||'').replace(/[^0-9.]/g,'')) || 0;
       });
-      var total=subtotal;
+      var base=subtotal;
       if(hasDiscount){
         var pct=parseFloat((document.querySelector('.disc-pct').textContent||'').replace(/[^0-9.]/g,'')) || 0;
         var disc=Math.round(subtotal*pct/100);
-        total=subtotal-disc;
-        document.getElementById('subtotal').textContent=fmt(subtotal);
+        base=subtotal-disc;
         document.getElementById('discountVal').textContent='−'+fmt(disc);
       }
-      document.getElementById('total').textContent=fmt(total);
+      document.getElementById('subtotal').textContent=fmt(subtotal);
+      var vatPct=parseFloat((document.querySelector('.vat-pct').textContent||'').replace(/[^0-9.]/g,'')) || 0;
+      var vat=Math.round(base*vatPct/100);
+      document.getElementById('vatVal').textContent=fmt(vat);
+      document.getElementById('total').textContent=fmt(base+vat);
     }
     function setDiscount(on){
       hasDiscount=on;
-      document.getElementById('subtotalRow').style.display=on?'':'none';
       document.getElementById('discountRow').style.display=on?'':'none';
       document.getElementById('addDiscountBtn').style.display=on?'none':'';
       recalc();
@@ -235,7 +238,7 @@ ul.incl li{margin:.12rem 0;}
       recalc();
     }
     document.addEventListener('input',function(e){
-      if(e.target.classList && (e.target.classList.contains('price')||e.target.classList.contains('disc-pct'))) recalc();
+      if(e.target.classList && (e.target.classList.contains('price')||e.target.classList.contains('disc-pct')||e.target.classList.contains('vat-pct'))) recalc();
     });
     recalc();
   </script>
