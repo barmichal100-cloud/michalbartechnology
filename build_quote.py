@@ -222,6 +222,7 @@ ul.incl li{margin:.12rem 0;}
     }
     function setDiscount(on){
       hasDiscount=on;
+      document.getElementById('subtotalRow').style.display=on?'':'none';
       document.getElementById('discountRow').style.display=on?'':'none';
       document.getElementById('addDiscountBtn').style.display=on?'none':'';
       recalc();
