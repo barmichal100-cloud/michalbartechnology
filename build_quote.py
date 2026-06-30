@@ -214,6 +214,8 @@ ul.incl li{margin:.12rem 0;}
         base=subtotal-disc;
         document.getElementById('discountVal').textContent='−'+fmt(disc);
       }
+      var rowCount=document.querySelectorAll('#rows tr').length;
+      document.getElementById('subtotalRow').style.display=(rowCount>=2)?'':'none';
       document.getElementById('subtotal').textContent=fmt(subtotal);
       var vatPct=parseFloat((document.querySelector('.vat-pct').textContent||'').replace(/[^0-9.]/g,'')) || 0;
       var vat=Math.round(base*vatPct/100);
@@ -222,7 +224,6 @@ ul.incl li{margin:.12rem 0;}
     }
     function setDiscount(on){
       hasDiscount=on;
-      document.getElementById('subtotalRow').style.display=on?'':'none';
       document.getElementById('discountRow').style.display=on?'':'none';
       document.getElementById('addDiscountBtn').style.display=on?'none':'';
       recalc();
