@@ -146,8 +146,8 @@ ul.incl li{margin:.12rem 0;}
         <tr><td><div contenteditable="true">עיצוב ופיתוח – בניית הפתרון מקצה לקצה</div><div class="note" contenteditable="true" data-ph="הערה (אופציונלי)"></div></td><td class="col-price price" contenteditable="true">0</td><td class="col-x"><button class="rm" onclick="rm(this)">✕</button></td></tr>
       </tbody>
       <tfoot>
-        <tr class="subtotal-row" id="subtotalRow"><td>סכום ביניים</td><td class="col-price" id="subtotal">₪0</td><td></td></tr>
         <tr class="discount-row" id="discountRow"><td>הנחה <span class="disc-pct" contenteditable="true">10</span>%</td><td class="col-price discount-val" id="discountVal">−₪0</td><td class="col-x"><button class="rm" onclick="removeDiscount()" title="הסר הנחה">✕</button></td></tr>
+        <tr class="subtotal-row" id="subtotalRow"><td>סה״כ ללא מע״מ</td><td class="col-price" id="subtotal">₪0</td><td></td></tr>
         <tr class="vat-row"><td>מע״מ <span class="vat-pct" contenteditable="true">18</span>%</td><td class="col-price" id="vatVal">₪0</td><td></td></tr>
         <tr class="total-row"><td>סה״כ לתשלום (כולל מע״מ)</td><td class="col-price total-val" id="total">₪0</td><td></td></tr>
       </tfoot>
@@ -214,9 +214,7 @@ ul.incl li{margin:.12rem 0;}
         base=subtotal-disc;
         document.getElementById('discountVal').textContent='−'+fmt(disc);
       }
-      var rowCount=document.querySelectorAll('#rows tr').length;
-      document.getElementById('subtotalRow').style.display=(rowCount>=2)?'':'none';
-      document.getElementById('subtotal').textContent=fmt(subtotal);
+      document.getElementById('subtotal').textContent=fmt(base);
       var vatPct=parseFloat((document.querySelector('.vat-pct').textContent||'').replace(/[^0-9.]/g,'')) || 0;
       var vat=Math.round(base*vatPct/100);
       document.getElementById('vatVal').textContent=fmt(vat);
