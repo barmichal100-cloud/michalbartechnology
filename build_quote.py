@@ -104,10 +104,29 @@ ul.incl li{margin:.12rem 0;}
 @media print{
   @page{size:A4;margin:0;}
   html,body{background:var(--paper) !important;}
+  body{line-height:1.3;}
   .toolbar{display:none !important;}
   .rm,.add-row{display:none !important;}
   .note:empty{display:none !important;}
   .page{box-shadow:none;margin:0 auto;width:auto;min-height:0;background:var(--paper);padding:6mm 14mm;}
+  /* ── compress everything so a normal quote always fits one A4 page ── */
+  .q-head{padding-bottom:.4rem;}
+  .q-head img{height:56px;}
+  .q-head .brand h1{font-size:1.6rem;}
+  .q-head .title .label{font-size:1.5rem;}
+  .meta{margin:.35rem 0 .1rem;}
+  .intro{margin:.35rem 0 .35rem;}
+  table.items{margin:.25rem 0;}
+  table.items th,table.items td{padding:.24rem .9rem;}
+  tfoot td{padding:.2rem .9rem;}
+  .total-row td{padding-top:.35rem;font-size:1.12rem;}
+  .section-h{margin:.5rem 0 .25rem;}
+  ul.incl li{margin:.05rem 0;}
+  .terms p{margin:.12rem 0;}
+  .sign-note{margin:.08rem 0 .28rem;}
+  .signatures{margin:.2rem 0 .1rem;}
+  .sig-field{margin:.24rem 0;}
+  .q-foot{margin-top:.55rem;padding-top:.42rem;}
   [contenteditable]:hover,[contenteditable]:focus{background:none !important;}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 }
