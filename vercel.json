@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/li",    "destination": "/?utm_source=linkedin&utm_medium=social&utm_campaign=profile", "permanent": false },
+    { "source": "/wa",    "destination": "/?utm_source=whatsapp&utm_medium=social&utm_campaign=share",    "permanent": false },
+    { "source": "/email", "destination": "/?utm_source=email&utm_medium=email&utm_campaign=signature",    "permanent": false }
+  ]
+}

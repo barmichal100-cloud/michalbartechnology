@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>מיכל בר · פתרונות טכנולוגיים</title>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF50CS11HZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZF50CS11HZ');
+</script>
 <meta name="description" content="ייעוץ, פיתוח מוצר ואוטומציה – מזהה את הצורך השורשי ובונה את הפתרון הנכון, מקצה לקצה." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://michalbartech.com/" />
@@ -674,9 +682,17 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
       var orig=btn.textContent; btn.textContent='שולח…'; btn.disabled=true; msg('','');
       emailjs.sendForm('service_y3jd01l','template_mo4oe7j',form)
-        .then(function(){showDone();})
+        .then(function(){showDone();if(window.gtag)gtag('event','generate_lead',{method:'contact_form'});})
         .catch(function(err){console.error('EmailJS error:',err);msg('err','שגיאה בשליחה – נסו שוב או דברו איתי בוואטסאפ');})
         .finally(function(){btn.textContent=orig;btn.disabled=false;});
+    });
+    // GA4: track WhatsApp / phone / LinkedIn clicks as lead events
+    document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('a'); if(!a||!window.gtag)return;
+      var href=a.getAttribute('href')||'';
+      if(href.indexOf('wa.me')!==-1||href.indexOf('whatsapp')!==-1) gtag('event','contact_click',{method:'whatsapp'});
+      else if(href.indexOf('tel:')===0) gtag('event','contact_click',{method:'phone'});
+      else if(href.indexOf('linkedin.com')!==-1) gtag('event','contact_click',{method:'linkedin'});
     });
   });
 </script>
