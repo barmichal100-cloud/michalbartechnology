@@ -361,3 +361,6 @@ main section.page-hero{padding-inline:28px;}
   .hero .mega{font-size:clamp(27px,7.6vw,42px)!important;}
   .hero p.sub{font-size:15.5px!important;}
 }
+
+/* hero sub: wider + balanced so it sits in ~3 lines (no orphan word) */
+.hero p.sub{max-width:880px!important;text-wrap:balance;}
