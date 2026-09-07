@@ -244,14 +244,18 @@ def page(path, filename, title, desc, trail, body_html, schemas):
 
 # ---- /services (hub) ----
 svc_cards = '''  <section class="wrap page-hero">
-    <span class="eyebrow"><span class="idx">//</span> <span class="ttl">שירותים</span></span>
-    <h1 class="s-head">פיתוח, אוטומציה וסוכני AI – מקצה לקצה</h1>
-    <p class="s-lead">משלבת אסטרטגיה, אפיון מדויק, פיתוח, אוטומציה וסוכני AI בליווי אישי מההתחלה ועד התוצאה. שלושה תחומי שירות, גישה אחת: להבין את הצורך השורשי ולבנות את הפתרון הנכון.</p>
+    <div class="svc-hero-grid">
+      <div class="svc-hero-main">
+        <span class="eyebrow"><span class="idx">//</span> <span class="ttl">שירותים</span></span>
+        <h1 class="s-head">פיתוח, אוטומציה וסוכני AI – מקצה לקצה</h1>
+        <p class="s-lead">משלבת אסטרטגיה, אפיון מדויק, פיתוח, אוטומציה וסוכני AI בליווי אישי מההתחלה ועד התוצאה. שלושה תחומי שירות, גישה אחת: להבין את הצורך השורשי ולבנות את הפתרון הנכון.</p>
+      </div>
+      <div class="svc-hero-aside prose">
+        <p>השירותים מיועדים לעסקים, לעצמאים, ליזמים ולסטארט-אפים – ואפשר להתחיל מכל נקודה: <a href="/services/product-development">פיתוח מוצרים, אתרים ואפליקציות</a>, <a href="/services/automation">אוטומציה וסוכני AI</a>, או <a href="/services/consulting">ייעוץ ואפיון טכנולוגי</a>. מעל 20 שנה בעולמות ההייטק ואינטואיציה מוצרית חדה <a href="/about">מלוות כל פרויקט</a>, מהבנת הצורך ועד המימוש.</p>
+      </div>
+    </div>
   </section>
   <section class="wrap">
-    <div class="prose" style="max-width:72ch;margin-bottom:30px;">
-      <p>השירותים מיועדים לעסקים, לעצמאים, ליזמים ולסטארט-אפים – ואפשר להתחיל מכל נקודה: <a href="/services/product-development">פיתוח מוצרים, אתרים ואפליקציות</a>, <a href="/services/automation">אוטומציה וסוכני AI</a>, או <a href="/services/consulting">ייעוץ ואפיון טכנולוגי</a>. מעל 20 שנה בעולמות ההייטק ואינטואיציה מוצרית חדה <a href="/about">מלוות כל פרויקט</a>, מהבנת הצורך ועד המימוש.</p>
-    </div>
     <div class="cards">
       <a class="card" href="/services/product-development">
         <div class="ic mono">&lt;/&gt;</div>

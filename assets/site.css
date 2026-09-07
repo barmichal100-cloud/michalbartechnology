@@ -356,6 +356,15 @@ main section:not(.hero) .cards{margin-top:0;}
 /* page heading: keep the standard side padding (the .page-hero shorthand zeroed it) */
 main section.page-hero{padding-inline:28px;}
 
+/* /services hero: on desktop, drop the intro paragraph into the empty left column
+   beside the H1+lead; on mobile it stacks below as a normal paragraph */
+.svc-hero-aside{margin-top:22px;}
+.svc-hero-aside p{margin:0;}
+@media(min-width:861px){
+  .svc-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;}
+  .svc-hero-aside{margin-top:0;}
+}
+
 /* ── new homepage hero (concrete headline + single CTA) ── */
 .hero .mega{font-size:clamp(32px,5.4vw,62px)!important;letter-spacing:-.5px;line-height:1.1;}
 .hero p.sub{font-size:clamp(15.5px,1.7vw,18px)!important;max-width:640px;line-height:1.72;margin-inline:auto;}
