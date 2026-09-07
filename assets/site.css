@@ -372,3 +372,10 @@ main section.page-hero{padding-inline:28px;}
   .hero-copy{max-width:940px;}
   .hero p.sub{max-width:940px!important;font-size:17px!important;}
 }
+
+/* form field required/optional markers */
+.field .req{color:var(--accent2);font-weight:700;margin-inline-start:2px;}
+.field .opt{color:var(--muted);font-weight:400;font-size:.85em;}
+
+/* form trust micro-line under submit */
+.form-trust{margin-top:10px;color:var(--muted);font-size:12.5px;text-align:center;line-height:1.5;}

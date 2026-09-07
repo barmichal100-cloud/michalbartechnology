@@ -78,7 +78,7 @@
   <section class="wrap page-hero" style="text-align:center;">
     <span class="eyebrow" style="justify-content:center;"><span class="idx">//</span> <span class="ttl">צרו קשר</span></span>
     <h1 class="s-head" style="margin-inline:auto;">יש לכם אתגר, רעיון או פרויקט?</h1>
-    <p class="s-lead" style="margin-inline:auto;">שיחת היכרות ראשונית – ללא התחייבות. אחזור אליכם תוך 24 שעות.</p>
+    <p class="s-lead" style="margin-inline:auto;">שיחת ייעוץ חינם, ללא התחייבות – אחזור אליכם תוך 24 שעות.</p>
   </section>
   <section class="wrap">
     <div class="contact-grid">
@@ -96,17 +96,18 @@
       <form class="contact-form" id="contactForm" novalidate autocomplete="on">
         <h3>השאירו פרטים</h3>
         <p class="form-sub">אחזור אליכם תוך 24 שעות</p>
-        <div class="field"><label for="name">שם</label>
+        <div class="field"><label for="name">שם <span class="req">*</span></label>
           <input type="text" id="name" name="name" required maxlength="80" autocomplete="name" placeholder="איך נכון לפנות אליכם?" dir="rtl" /></div>
-        <div class="field"><label for="phone">טלפון</label>
+        <div class="field"><label for="phone">טלפון <span class="req">*</span></label>
           <input type="tel" id="phone" name="phone" maxlength="20" autocomplete="tel" inputmode="tel" placeholder="050-0000000" dir="ltr" /></div>
-        <div class="field"><label for="email">דוא״ל</label>
+        <div class="field"><label for="email">דוא״ל <span class="opt">(לא חובה)</span></label>
           <input type="email" id="email" name="email" maxlength="120" autocomplete="email" inputmode="email" placeholder="name@example.com" dir="ltr" /></div>
-        <div class="field"><label for="message">ההודעה</label>
+        <div class="field"><label for="message">ההודעה <span class="opt">(לא חובה)</span></label>
           <textarea id="message" name="message" maxlength="2000" placeholder="ספרו מה אתם מחפשים – אתגר, רעיון, פרויקט..." dir="rtl"></textarea></div>
         <div class="hp-field" aria-hidden="true"><label for="website">Website</label>
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" /></div>
-        <button type="submit" class="btn1 form-submit">שליחה</button>
+        <button type="submit" class="btn1 form-submit">שליחה – ואחזור אליכם</button>
+        <p class="form-trust">הפרטים שלכם נשמרים אצלי בלבד · ללא ספאם</p>
         <div class="form-status" id="formStatus" aria-live="polite"></div>
       </form>
     </div>
@@ -133,8 +134,8 @@
       var digits=phone.replace(/\D/g,'');
       var validPhone=/^[\d\s\-+()]+$/.test(phone)&&(/^0\d{8,9}$/.test(digits)||/^972\d{9}$/.test(digits));
       if(!validPhone){msg('err','מספר טלפון לא תקין');return;}
-      if(!email){msg('err','אנא הזינו כתובת מייל');return;}
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
+      
+      if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
       var orig=btn.textContent;btn.textContent='שולח…';btn.disabled=true;msg('','');
       emailjs.sendForm('service_y3jd01l','template_mo4oe7j',form)
         .then(function(){showDone();if(window.gtag)gtag('event','generate_lead',{method:'contact_form'});})
