@@ -357,8 +357,6 @@ main section:not(.hero) .contact-grid{margin-top:0;}
 /* page heading: keep the standard side padding (the .page-hero shorthand zeroed it) */
 main section.page-hero{padding-inline:28px;}
 
-/* /services hero is centered (like /contact); its intro prose is centered too */
-main section.page-hero[style*="center"] .prose{text-align:center;}
 
 /* ── new homepage hero (concrete headline + single CTA) ── */
 .hero .mega{font-size:clamp(32px,5.4vw,62px)!important;letter-spacing:-.5px;line-height:1.1;}
