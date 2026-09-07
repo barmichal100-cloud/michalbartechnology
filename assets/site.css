@@ -349,3 +349,6 @@ main section:last-child{padding-bottom:64px;}
 
 /* FAQ blocks span the full content width */
 .faq{max-width:none;}
+
+/* page heading: keep the standard side padding (the .page-hero shorthand zeroed it) */
+main section.page-hero{padding-inline:28px;}
