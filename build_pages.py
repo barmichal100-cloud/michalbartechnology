@@ -60,6 +60,7 @@ def head(title, desc, path, schemas):
         <a href="/services">שירותים</a>
         <a href="/about">עליי</a>
         <a href="/projects">פרויקטים</a>
+        <a href="/faq">שאלות נפוצות</a>
         <a class="nav-cta" href="/contact">צרו קשר</a>
       </div>
       <button class="burger" id="burger" aria-label="תפריט"><span></span><span></span><span></span></button>
