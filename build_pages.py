@@ -54,7 +54,7 @@ def head(title, desc, path, schemas):
     <nav>
       <a class="brand" href="/">
         <img class="logo" src="/logo.png" alt="מיכל בר" />
-        <div><b>מיכל בר</b><small>ייעוץ · פיתוח מוצר · אוטומציה</small></div>
+        <div><b>מיכל בר</b><small>פיתוח · אוטומציה · סוכני AI</small></div>
       </a>
       <div class="nav-links" id="navlinks">
         <a href="/services">שירותים</a>
@@ -74,9 +74,9 @@ FOOTER = '''<footer class="site-footer">
     <div class="footer-brand">
       <div class="brand">
         <img class="logo" src="/logo.png" alt="מיכל בר" />
-        <div><b>מיכל בר</b><small>ייעוץ · פיתוח מוצר · אוטומציה</small></div>
+        <div><b>מיכל בר</b><small>פיתוח · אוטומציה · סוכני AI</small></div>
       </div>
-      <p>פתרונות טכנולוגיים, מוצריים ועסקיים – מהבנת הצורך ועד המימוש</p>
+      <p>פיתוח מערכות ואתרים, אוטומציה וסוכני AI – לעסקים, לעצמאים וליזמים. מהבנת הצורך ועד המימוש.</p>
     </div>
     <div class="footer-col">
       <h4>ניווט</h4>
@@ -101,7 +101,7 @@ FOOTER = '''<footer class="site-footer">
   </div>
   <div class="wrap footer-bottom">
     <span>© <span class="mono">2026</span> מיכל בר · כל הזכויות שמורות</span>
-    <span>ייעוץ · פיתוח מוצר · אוטומציה</span>
+    <span>פיתוח · אוטומציה · סוכני AI</span>
   </div>
 </footer>
 <script>
@@ -316,7 +316,7 @@ about_body = '''  <section class="wrap page-hero">
         <p>אני חושבת בצורה יצירתית, ולכן הפתרונות שלי מדויקים, מקוריים ונכונים – כאלה שמזיזים את המחט. ומכיוון שאני מחוברת לעיצוב ולאסתטיקה, גם המסר וגם הנראות חשובים לי לא פחות מהתוכן.</p>
         <p>מעל 20 שנה בעולמות ההייטק והטכנולוגיה – מהיחידה הטכנולוגית של חיל המודיעין בתחום הסייבר, דרך ייעוץ וניהול לקוחות, ועד תפקידי ניהול בכירים בסטארט-אפ סייבר, שם הובלתי את מערך ה-<span dir="ltr">Customer Success</span> והשירותים המקצועיים – באחריות מלאה על כלל הלקוחות והפרויקטים. היום אני מפתחת מוצרים ופתרונות לעסקים.</p>
         <p class="about-note">ומעל הכל – חיבור אמיתי לאנשים והקשבה לצורך שמאחורי המילים. אנגלית ברמת שפת אם · יכולות הצגה ופרזנטציה גבוהות.</p>
-        <div class="sig">מיכל בר<small>ייעוץ · פיתוח מוצר · אוטומציה</small></div>
+        <div class="sig">מיכל בר<small>פיתוח · אוטומציה · סוכני AI</small></div>
       </div>
     </div>
     <div class="timeline">
