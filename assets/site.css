@@ -334,3 +334,11 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .page-foot-cta{margin-top:8px;}
 a.card{color:inherit;}
 a.card .go{margin-top:14px;color:var(--accent);font-weight:700;font-size:14.5px;display:inline-flex;gap:5px;align-items:center;}
+
+/* inner content pages (wrapped in <main>): no decorative section dividers,
+   which are meant only for the homepage's big alternating bands */
+main section:not(.hero){border-top:0;padding-top:34px;}
+main section:not(.hero)::before,
+main section:not(.hero)::after{content:none !important;display:none !important;}
+main .breadcrumb{padding-top:24px;}
+main section.page-hero{padding-top:12px;}
