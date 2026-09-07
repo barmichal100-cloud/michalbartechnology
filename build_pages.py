@@ -305,6 +305,13 @@ page("/services","services.html",
         {"@type":"ListItem","position":2,"url":SITE+"/services/automation","name":"אוטומציה וסוכני AI"},
         {"@type":"ListItem","position":3,"url":SITE+"/services/consulting","name":"ייעוץ ואפיון טכנולוגי"}]}, faq_s])
 
+# canonical service list (used for the "related services" cross-links on each sub-page)
+SERVICES = [
+    ("/services/product-development", "פיתוח מוצרים, אתרים ואפליקציות"),
+    ("/services/automation", "אוטומציה וסוכני AI"),
+    ("/services/consulting", "ייעוץ ואפיון טכנולוגי"),
+]
+
 # ---- generic service sub-page builder ----
 def service_page(path, filename, title, desc, h1, lead, intro_paras, includes, forwhom, faq_pairs, svc_name, svc_desc):
     inc = "".join(f"<li>{x}</li>" for x in includes)
@@ -324,9 +331,16 @@ def service_page(path, filename, title, desc, h1, lead, intro_paras, includes, f
   </section>
 '''
     fh, fs = faq_block(faq_pairs)
+    others = [(p, n) for p, n in SERVICES if p != path]
+    rel = "".join(f'<a href="{p}"><span>{n}</span> <span class="ar">&#8592;</span></a>' for p, n in others)
+    related = f'''  <section class="wrap">
+    <span class="eyebrow"><span class="idx">//</span> <span class="ttl">שירותים קשורים</span></span>
+    <div class="related">{rel}</div>
+  </section>
+'''
     page(path, filename, title, desc,
          [("דף הבית","/"),("שירותים","/services"),(h1,None)],
-         body + fh + CTA,
+         body + fh + related + CTA,
          [service_schema(svc_name, svc_desc, path), fs])
 
 service_page("/services/product-development","services/product-development.html",
