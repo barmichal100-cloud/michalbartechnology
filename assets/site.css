@@ -343,6 +343,9 @@ main section:not(.hero)::after{content:none !important;display:none !important;}
 main .breadcrumb{padding-top:24px;}
 main section.page-hero{padding-top:12px;padding-bottom:6px;}
 main section:last-child{padding-bottom:64px;}
+/* cards in their own inner-page section already get the section's padding-top;
+   drop the extra .cards margin so the hero->cards gap isn't doubled (e.g. /services) */
+main section:not(.hero) .cards{margin-top:0;}
 
 /* breadcrumb is a <nav>; stop the generic nav{justify-content:space-between} from spreading it */
 .breadcrumb{justify-content:flex-start;}
