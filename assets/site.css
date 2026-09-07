@@ -138,7 +138,7 @@ section:not(.hero)::after{content:"";position:absolute;top:-8px;left:50%;transfo
 .tl li small{display:block;color:var(--muted);font-size:13px;margin-top:5px;}
 
 /* PROCESS */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:46px;}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:46px;}
 .step{position:relative;padding-top:20px;border-top:2px solid var(--line2);}
 .step b.n{font-family:var(--mono);color:var(--accent);font-size:26px;font-weight:600;}
 .step h4{font-family:var(--serif);font-size:20px;font-weight:700;margin-top:10px;}

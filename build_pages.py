@@ -284,6 +284,7 @@ svc_cards = '''  <section class="wrap page-hero">
       <div class="step"><b class="n">02</b><h4>אפיון ותכנון</h4><p>בונים אפיון ופתרון מותאם</p></div>
       <div class="step"><b class="n">03</b><h4>פיתוח ויישום</h4><p>מבצעים, עם עדכון שוטף ושקיפות</p></div>
       <div class="step"><b class="n">04</b><h4>השקה והתאמות</h4><p>עולים לאוויר ומתאימים עד שביעות רצון מלאה</p></div>
+      <div class="step"><b class="n">05</b><h4>תמיכה שוטפת</h4><p>אופציונלי – תחזוקה, שיפורים והמשך פיתוח, כחבילה חודשית לפי הצורך</p></div>
     </div>
   </section>
 '''
