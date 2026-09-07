@@ -444,7 +444,7 @@ page("/about","about.html",
 projects_body = '''  <section class="wrap page-hero">
     <span class="eyebrow"><span class="idx">//</span> <span class="ttl">פרויקטים</span></span>
     <h1 class="s-head">פרויקטים נבחרים</h1>
-    <p class="s-lead">כמה מהפתרונות שאפיינתי ובניתי – מהצורך ועד התוצאה.</p>
+    <p class="s-lead">כל אחד נבנה מתוך הבנת הצורך העסקי – מוצרים, אתרים ומערכות שבאמת עובדים.</p>
   </section>
   <section class="wrap">
     <div class="proj">
@@ -470,7 +470,7 @@ projects_body = '''  <section class="wrap page-hero">
         <div class="body">
           <div class="tags"><span class="tag">מוצר</span><span class="tag">אפיון</span><span class="tag">פיתוח</span><span class="tag" dir="ltr">Data Analytics</span><span class="tag" dir="ltr">AI</span></div>
           <h4>ניתוח תוכן לאינסטגרם</h4>
-          <p>מערכת לניתוח ביצועי תוכן באינסטגרם – מגדירים חשבונות לניתוח, והמערכת אוספת נתונים מעמיקים מכל פוסט, מנתחת ומפיקה אינסייטס: אילו פוסטים עובדים, למה, ומה אפשר לשפר כדי להגיע לביצועים טובים יותר.</p>
+          <p>מערכת לניתוח ביצועי תוכן באינסטגרם – מגדירים חשבונות לניתוח, והמערכת אוספת נתונים מעמיקים מכל פוסט (חשיפות, מעורבות, סוג תוכן ועוד), מנתחת ומפיקה אינסייטס: אילו פוסטים עובדים, למה, ומה אפשר לשפר כדי להגיע לביצועים טובים יותר. <strong>התוצאה:</strong> חיסכון של מאות שעות עבודה ידנית בחודש, ותובנות שניתוח ידני לא הצליח להגיע אליהן – שהביאו מכירות חדשות רבות לעסק.</p>
         </div>
       </div>
     </div>
