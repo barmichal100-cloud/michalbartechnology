@@ -346,3 +346,6 @@ main section:last-child{padding-bottom:64px;}
 
 /* breadcrumb is a <nav>; stop the generic nav{justify-content:space-between} from spreading it */
 .breadcrumb{justify-content:flex-start;}
+
+/* FAQ blocks span the full content width */
+.faq{max-width:none;}
