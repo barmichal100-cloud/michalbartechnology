@@ -136,7 +136,7 @@ def crumbs(trail):
 def faq_block(pairs):
     rows = "\n".join(
         f'    <details><summary>{q}</summary><p class="a">{a}</p></details>' for q,a in pairs)
-    html = f'''  <section class="wrap" style="padding-bottom:20px;">
+    html = f'''  <section class="wrap" style="padding-top:14px;padding-bottom:20px;">
     <h2 class="s-head" style="font-size:clamp(26px,4vw,38px);">שאלות נפוצות</h2>
     <div class="faq">
 {rows}
