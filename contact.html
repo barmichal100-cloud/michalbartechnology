@@ -134,7 +134,7 @@
       var digits=phone.replace(/\D/g,'');
       var validPhone=/^[\d\s\-+()]+$/.test(phone)&&(/^0\d{8,9}$/.test(digits)||/^972\d{9}$/.test(digits));
       if(!validPhone){msg('err','מספר טלפון לא תקין');return;}
-      
+
       if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg('err','כתובת מייל לא תקינה');return;}
       var orig=btn.textContent;btn.textContent='שולח…';btn.disabled=true;msg('','');
       emailjs.sendForm('service_y3jd01l','template_mo4oe7j',form)
