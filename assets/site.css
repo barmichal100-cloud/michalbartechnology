@@ -384,6 +384,11 @@ main section.page-hero{padding-inline:28px;}
   .hero p.sub{max-width:940px!important;font-size:17px!important;}
 }
 
+/* service sub-pages: the "מה זה כולל / למי זה מתאים" pair fills two full-width columns (not 3) */
+@media(min-width:861px){
+  .cards.svc-pair{grid-template-columns:repeat(2,1fr);}
+}
+
 /* form field required/optional markers */
 .field .req{color:var(--accent2);font-weight:700;margin-inline-start:2px;}
 .field .opt{color:var(--muted);font-weight:400;font-size:.85em;}

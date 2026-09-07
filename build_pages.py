@@ -324,7 +324,7 @@ def service_page(path, filename, title, desc, h1, lead, intro_paras, includes, f
   </section>
   <section class="wrap">
     <div class="prose">{paras}</div>
-    <div class="cards" style="margin-top:32px;">
+    <div class="cards svc-pair" style="margin-top:32px;">
       <div class="card"><h3>מה זה כולל</h3><ul class="svc-list">{inc}</ul></div>
       <div class="card"><h3>למי זה מתאים</h3><ul class="svc-list">{who}</ul></div>
     </div>
