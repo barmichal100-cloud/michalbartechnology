@@ -364,3 +364,11 @@ main section.page-hero{padding-inline:28px;}
 
 /* hero sub: wider + balanced so it sits in ~3 lines (no orphan word) */
 .hero p.sub{max-width:880px!important;text-wrap:balance;}
+
+/* hero sub: desktop line control — fit the audience sentence on line 1 */
+.d-only{display:none;}
+@media(min-width:861px){
+  .d-only{display:inline;}
+  .hero-copy{max-width:940px;}
+  .hero p.sub{max-width:940px!important;font-size:17px!important;}
+}
