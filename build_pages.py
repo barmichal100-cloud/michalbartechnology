@@ -416,7 +416,7 @@ about_body = '''  <section class="wrap page-hero">
         <li><span class="tl-dot"></span><b>חיל המודיעין</b><small>יחידה טכנולוגית · סייבר</small></li>
         <li><span class="tl-dot"></span><b>ייעוץ וניהול לקוחות</b><small>עולם הסייבר</small></li>
         <li><span class="tl-dot"></span><b>ניהול בכיר בסטארטאפ</b><small><span dir="ltr">Customer Success</span> · סייבר</small></li>
-        <li><span class="tl-dot tl-now"></span><b>היום</b><small>פיתוח מוצרים ופתרונות לעסקים</small></li>
+        <li><span class="tl-dot tl-now"></span><b>היום</b><small>פיתוח, אוטומציה וסוכני AI לעסקים</small></li>
       </ol>
     </div>
   </section>
