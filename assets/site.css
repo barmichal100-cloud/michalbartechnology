@@ -342,3 +342,6 @@ main section:not(.hero)::before,
 main section:not(.hero)::after{content:none !important;display:none !important;}
 main .breadcrumb{padding-top:24px;}
 main section.page-hero{padding-top:12px;}
+
+/* breadcrumb is a <nav>; stop the generic nav{justify-content:space-between} from spreading it */
+.breadcrumb{justify-content:flex-start;}
