@@ -61,6 +61,7 @@ def head(title, desc, path, schemas):
         <a href="/about">עליי</a>
         <a href="/projects">פרויקטים</a>
         <a href="/faq">שאלות נפוצות</a>
+        <a href="/blog">בלוג</a>
         <a class="nav-cta" href="/contact">צרו קשר</a>
       </div>
       <button class="burger" id="burger" aria-label="תפריט"><span></span><span></span><span></span></button>
@@ -84,6 +85,7 @@ FOOTER = '''<footer class="site-footer">
       <a href="/about">עליי</a>
       <a href="/projects">פרויקטים</a>
       <a href="/faq">שאלות נפוצות</a>
+      <a href="/blog">בלוג</a>
       <a href="/contact">צרו קשר</a>
       <a href="/accessibility">הצהרת נגישות</a>
       <a href="/privacy">מדיניות פרטיות</a>
@@ -632,5 +634,110 @@ page("/faq","faq.html",
      [("דף הבית","/"),("שאלות נפוצות",None)],
      "\n".join(faq_sections) + CTA,
      [faq_schema])
+
+# ================= BLOG =================
+from urllib.parse import quote
+SVG_WA = '<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 4C9.93 4 4.98 8.95 4.98 15.06c0 2.05.56 4.05 1.62 5.8L4 28l7.3-2.55a11.04 11.04 0 0 0 4.74 1.07h.01c6.11 0 11.06-4.95 11.06-11.06C27.1 8.95 22.15 4 16.04 4zm0 20.2c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-4.33 1.51 1.45-4.22-.2-.32a9.16 9.16 0 0 1-1.4-4.87c0-5.06 4.12-9.18 9.19-9.18 2.45 0 4.76.96 6.49 2.69a9.13 9.13 0 0 1 2.69 6.5c0 5.06-4.12 9.18-9.18 9.18z"/></svg>'
+SVG_LI = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg>'
+SVG_X = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.3 8.3L23 22h-6.8l-5.3-6.9L4.8 22H1.7l7.8-8.9L1 2h7l4.8 6.3z"/></svg>'
+SVG_MAIL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>'
+SVG_LINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>'
+BLOG_GRADS = ["linear-gradient(135deg,#E3A45C,#C2683F)","linear-gradient(135deg,#C98A34,#A6543A)","linear-gradient(135deg,#D98E52,#8C4A3A)"]
+HE_MONTHS = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"]
+def he_date(iso):
+    y,m,d = iso.split("-"); return "%d ב%s %s" % (int(d), HE_MONTHS[int(m)-1], y)
+AUTHOR_BOX = ('<div class="author-box"><img class="av" src="/michal.jpg" alt="מיכל בר" loading="lazy" />'
+  '<div><h4>מיכל בר</h4><p>מפתחת ויועצת פתרונות טכנולוגיים – מעל 20 שנה בהייטק ובסייבר (היחידה הטכנולוגית של חיל המודיעין וסטארט-אפ סייבר). מפתחת מוצרים, אתרים ומערכות, בונה אוטומציות וסוכני AI, ומלווה עסקים, עצמאים ויזמים.</p>'
+  '<div class="ab-links"><a href="/about">עוד עליי ←</a><a href="https://www.linkedin.com/in/michal-bar-9100825b/" target="_blank" rel="noopener">LinkedIn</a></div></div></div>')
+
+POSTS = [
+  {
+    "slug":"cost-to-develop-website-or-app",
+    "title":"כמה עולה לפתח אתר או אפליקציה – ומאיפה מתחילים",
+    "desc":"מה באמת קובע את העלות של אתר, מערכת או אפליקציה, איך מתחילים נכון, ולמה ‘זול’ יוצא לרוב ביוקר. מדריך קצר לעסקים, לעצמאים וליזמים.",
+    "cat":"פיתוח מוצר",
+    "date":"2026-09-23","modified":"2026-09-23","read":"7 דק׳ קריאה",
+    "excerpt":"אין מחיר אחד לפיתוח – יש טווח שנקבע לפי היקף, מורכבות, עיצוב ואבטחה. איך להבין את העלות, מאיפה להתחיל, ולמה הזול לרוב עולה ביוקר.",
+    "takeaways":[
+      "אין ‘מחיר אחד’ – העלות נקבעת לפי היקף, מורכבות, עיצוב, אינטגרציות ואבטחה.",
+      "אתר תדמית, מערכת ואפליקציה הם טווחים שונים לגמרי – מתחילים מהגדרת הצורך, לא מהמחיר.",
+      "MVP ממוקד מוריד עלות וסיכון ומאפשר לצאת לשוק מהר.",
+      "‘זול’ לרוב יוצא ביוקר: מוצר גנרי, בלי חשיבה עסקית ובלי אבטחה, חושף אתכם לתיקונים, לתביעות ולנזק תדמיתי.",
+    ],
+    "sections":[
+      ("למה אין ‘מחיר אחד’ לפיתוח", '<p>אחת השאלות הראשונות של כל עסק היא ‘כמה זה יעלה?’ – וזו שאלה נכונה. אבל בניגוד למוצר מדף, פיתוח הוא לא פריט אחד במחיר קבוע: הוא נבנה בדיוק סביב הצורך שלכם. אתר תדמית, מערכת ניהול פנימית, ואפליקציה עם משתמשים ותשלומים הם שלושה עולמות שונים לחלוטין – ולכן גם טווחי המחיר שונים לגמרי. במקום לחפש ‘את המחיר’, כדאי להבין <strong>מה משפיע עליו</strong> ואיך להוציא את הערך הגבוה ביותר מכל שקל.</p>'),
+      ("מה קובע את העלות", '<p>כמה גורמים מרכזיים קובעים את היקף העבודה – ולכן את העלות:</p><ul><li><strong>היקף ומורכבות</strong> – כמה מסכים, תהליכים ומשתמשים, וכמה ‘חכמה’ הלוגיקה מאחורי הקלעים.</li><li><strong>עיצוב וחוויית משתמש</strong> – עיצוב מותאם ומלוטש מול תבנית גנרית.</li><li><strong>אינטגרציות</strong> – חיבור למערכות תשלום, CRM, כלים חיצוניים ו-API.</li><li><strong>אבטחת מידע</strong> – קריטי כשיש פרטי לקוחות או תשלומים. אבטחה נכונה נבנית מהיסוד, לא מתווספת בסוף.</li><li><strong>תחזוקה והמשך</strong> – מוצר חי דורש תמיכה ושיפורים לאורך זמן.</li></ul>'),
+      ("אתר תדמית, מערכת או אפליקציה?", '<p>לפני שמדברים על מחיר, כדאי להגדיר מה בעצם צריך. <strong>אתר תדמית</strong> מציג את העסק ומביא פניות – פרויקט ממוקד יחסית. <strong>מערכת פנימית</strong> (כמו CRM או כלי ניהול) בנויה סביב תהליך עבודה וחוסכת זמן יקר. <strong>אפליקציה או מוצר עם משתמשים</strong> הוא העולם הרחב ביותר – חשבונות, תשלומים וניהול שוטף. ככל שהמוצר עושה יותר, הוא דורש יותר – וזה בסדר; העיקר להתאים את ההשקעה למה שבאמת יזיז את העסק. <a href="/services/product-development">כך אני בונה מוצרים, אתרים ומערכות</a>.</p>'),
+      ("מאיפה מתחילים נכון", '<p>ההתחלה הנכונה היא לא קוד – אלא <strong>אפיון</strong>. מגדירים מה הצורך העסקי האמיתי, מי המשתמשים, ומה חייב להיות בגרסה הראשונה. גישה טובה היא <strong>MVP</strong> – גרסה ראשונה ממוקדת שכוללת בדיוק את מה שצריך כדי לצאת לשוק ולהוכיח ערך, בלי פיצ׳רים מיותרים שמנפחים עלות וזמן. משם מרחיבים לפי מה שבאמת עובד. <a href="/services/consulting">ייעוץ ואפיון</a> בתחילת הדרך חוסך הרבה כסף בהמשך – כי בונים את הדבר הנכון מהפעם הראשונה.</p>'),
+      ("למה ‘זול’ לרוב יוצא ביוקר", '<p>היום קל יותר מתמיד לבנות משהו מהר וזול – עם תבניות מוכנות או כלי AI. הבעיה: לרוב מקבלים מוצר <strong>גנרי</strong> שנראה כמו כל האחרים, בלי חשיבה עסקית שתגרום לו באמת לעבוד, ו<strong>בלי אבטחה</strong>. מערכת לא מאובטחת חשופה לתקיפה – ואם נדלפים פרטי לקוחות או תשלום, העסק חשוף ל<strong>תביעות</strong> ולנזק תדמיתי כבד. ‘זול’ כזה נגמר לרוב בפיתוח מחדש. מוצר שנבנה נכון – עם ראייה מוצרית ואבטחה מהיסוד – עולה יותר מראש, אבל מחזיר את ההשקעה ולא מתפוצץ בפנים.</p>'),
+      ("סיכום", '<p>אין תשובה אחת ל‘כמה זה עולה’ – אבל יש דרך נכונה: להגדיר את הצורך, להתחיל ממוקד, ולבחור מי שבונה עם ניסיון, ראייה עסקית ואבטחה. יש לכם רעיון או צורך? <a href="/contact">דברו איתי</a> לשיחת היכרות קצרה, ונבין יחד מה נכון לבנות ובאיזה היקף.</p>'),
+    ],
+    "faq":[
+      ("כמה עולה אתר תדמית לעומת אפליקציה?","אלה שני עולמות שונים: אתר תדמית הוא פרויקט ממוקד יחסית, ואפליקציה עם משתמשים ותשלומים היא היקף רחב בהרבה. הטווח נקבע לפי מה שהמוצר צריך לעשות – ולכן מגדירים קודם את הצורך, ואז נותנים הצעת מחיר מדויקת."),
+      ("מה זה MVP וכמה הוא חוסך?","MVP הוא גרסה ראשונה ממוקדת שכוללת בדיוק את מה שצריך כדי לצאת לשוק ולהוכיח ערך. הוא מוריד עלות וסיכון, מקצר זמן, ומאפשר ללמוד מהשוק לפני השקעה גדולה."),
+      ("למה פיתוח זול יוצא ביוקר?","כי לרוב מקבלים מוצר גנרי, בלי חשיבה עסקית ובלי אבטחה. מוצר לא מאובטח חושף את העסק לתביעות ולנזק תדמיתי, ומוצר גנרי לרוב נזרק ונבנה מחדש – מה שעולה בסוף הרבה יותר."),
+    ],
+  },
+]
+
+def blog_card(p):
+    gi = POSTS.index(p) % len(BLOG_GRADS)
+    return ('<a class="blog-card" href="/blog/%s"><div class="banner" style="background:%s"></div>'
+      '<div class="bc-body"><span class="cat">%s</span><h3>%s</h3><p>%s</p>'
+      '<span class="meta">%s · %s</span></div></a>') % (p["slug"], BLOG_GRADS[gi], p["cat"], p["title"], p["excerpt"], he_date(p["date"]), p["read"])
+
+def blog_post(p, all_posts):
+    slug=p["slug"]; path="/blog/"+slug; full=SITE+path
+    gi = POSTS.index(p) % len(BLOG_GRADS)
+    toc=[]; body=[]
+    for i,(h2,html) in enumerate(p["sections"]):
+        sid="s%d" % (i+1)
+        toc.append('<li><a href="#%s">%s</a></li>' % (sid,h2))
+        body.append('<h2 id="%s">%s</h2>%s' % (sid,h2,html))
+    et=quote(p["title"]); eu=quote(full)
+    share=('<div class="share"><span class="lbl">שיתוף:</span>'
+      '<a href="https://wa.me/?text=%s%%20%s" target="_blank" rel="noopener" aria-label="שיתוף בוואטסאפ">%s</a>'
+      '<a href="https://www.linkedin.com/sharing/share-offsite/?url=%s" target="_blank" rel="noopener" aria-label="שיתוף בלינקדאין">%s</a>'
+      '<a href="https://twitter.com/intent/tweet?url=%s&text=%s" target="_blank" rel="noopener" aria-label="שיתוף ב-X">%s</a>'
+      '<a href="mailto:?subject=%s&body=%s" aria-label="שיתוף במייל">%s</a>'
+      '<button type="button" class="copy-link" data-url="%s" aria-label="העתקת קישור">%s</button></div>') % (et,eu,SVG_WA,eu,SVG_LI,eu,et,SVG_X,et,eu,SVG_MAIL,full,SVG_LINK)
+    tldr='<div class="tldr"><b>בקצרה</b><ul>%s</ul></div>' % ("".join("<li>%s</li>" % t for t in p["takeaways"]))
+    toc_html='<nav class="toc"><b>במאמר הזה</b><ol>%s</ol></nav>' % ("".join(toc))
+    cp='<script>document.querySelectorAll(".copy-link").forEach(function(b){b.addEventListener("click",function(){try{navigator.clipboard.writeText(b.dataset.url);}catch(e){}var o=b.getAttribute("aria-label");b.setAttribute("aria-label","הקישור הועתק!");setTimeout(function(){b.setAttribute("aria-label",o);},1500);});});</script>'
+    body_html=('  <section class="wrap"><article class="post">'
+      '<span class="eyebrow"><span class="idx">//</span> <span class="ttl">%s</span></span>'
+      '<h1 class="s-head">%s</h1>'
+      '<div class="byline"><span class="av" style="background:%s">מ</span> <b>מיכל בר</b> <span class="dot">·</span> <time datetime="%s">%s</time> <span class="dot">·</span> %s</div>'
+      '<div class="post-banner" style="background:%s"><span class="mono">&lt;/&gt;</span></div>'
+      '%s%s%s<div class="prose post-body">%s</div>%s%s'
+      '</article></section>') % (p["cat"], p["title"], BLOG_GRADS[gi], p["date"], he_date(p["date"]), p["read"], BLOG_GRADS[gi], share, tldr, toc_html, "".join(body), AUTHOR_BOX, cp)
+    schemas_extra=[]
+    if p.get("faq"):
+        fh, fs = faq_block(p["faq"]); body_html += fh; schemas_extra.append(fs)
+    others=[q for q in all_posts if q["slug"]!=slug][:3]
+    if others:
+        cards="".join(blog_card(q) for q in others)
+        body_html += '  <section class="wrap"><h2 class="s-head" style="font-size:clamp(24px,3.4vw,32px);">מאמרים קשורים</h2><div class="blog-cards">%s</div></section>' % cards
+    body_html += CTA
+    bp={"@type":"BlogPosting","headline":p["title"],"description":p["desc"],
+        "datePublished":p["date"],"dateModified":p["modified"],
+        "image":SITE+"/og-image.jpg","url":full,"mainEntityOfPage":full,
+        "author":{"@type":"Person","name":"מיכל בר","url":SITE+"/about"},"publisher":{"@id":BIZ}}
+    page(path, "blog/"+slug+".html", p["title"]+" | הבלוג של מיכל בר",
+         p["desc"], [("דף הבית","/"),("בלוג","/blog"),(p["title"],None)],
+         body_html, [bp]+schemas_extra)
+
+for _p in POSTS:
+    blog_post(_p, POSTS)
+
+blog_index_body = ('  <section class="wrap page-hero"><span class="eyebrow"><span class="idx">//</span> <span class="ttl">בלוג</span></span>'
+  '<h1 class="s-head">הבלוג</h1>'
+  '<p class="s-lead">תובנות מעשיות על פיתוח מוצר, אתרים, אוטומציה וסוכני AI – לעסקים, לעצמאים וליזמים.</p></section>'
+  '  <section class="wrap"><div class="blog-cards">%s</div></section>') % ("".join(blog_card(p) for p in POSTS))
+page("/blog","blog.html","בלוג · תובנות על פיתוח, אוטומציה וסוכני AI | מיכל בר",
+     "תובנות מעשיות על פיתוח מוצר ואתרים, אוטומציה וסוכני AI, וייעוץ טכנולוגי – לעסקים, לעצמאים וליזמים.",
+     [("דף הבית","/"),("בלוג",None)],
+     blog_index_body + CTA,
+     [{"@type":"Blog","name":"הבלוג של מיכל בר","url":SITE+"/blog"}])
 
 print("\\nAll pages generated.")
