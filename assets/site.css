@@ -417,6 +417,9 @@ a.blog-card:hover{border-color:var(--accent);transform:translateY(-4px);}
 .bfilter:hover{border-color:var(--accent);color:var(--ink);}
 .bfilter.active{background:var(--accent);color:#241307;border-color:var(--accent);}
 .blog-div{border:0;border-top:1px solid var(--line);margin:20px 0 30px;}
+.blog-head{display:flex;align-items:flex-end;gap:10px 40px;flex-wrap:wrap;}
+.blog-head h1{margin:0;}
+.blog-head .s-lead{flex:1;min-width:280px;max-width:52ch;margin:0 0 8px;}
 @media(max-width:760px){ .blog-featured{grid-template-columns:1fr;} .feat-media{order:-1;min-height:200px;} }
 
 

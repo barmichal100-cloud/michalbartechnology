@@ -681,6 +681,15 @@ POSTS = [
   },
 ]
 
+# --- TEMP demo posts (layout preview only; remove/replace with real articles before launch) ---
+_DEMO = {"takeaways":["נקודת מפתח לדוגמה","נקודת מפתח לדוגמה","נקודת מפתח לדוגמה"],
+    "sections":[("כותרת משנה לדוגמה","<p>תוכן לדוגמה להצגת מבנה העמוד. המאמר המלא ייכתב בהמשך.</p>")],"faq":[]}
+POSTS += [
+    dict(_DEMO, slug="demo-automation", title="אוטומציה וסוכני AI לעסק – מאיפה מתחילים", cat="אוטומציה וסוכני AI", date="2026-09-26", modified="2026-09-26", read="5 דק׳ קריאה", desc="מאמר לדוגמה.", excerpt="מאמר לדוגמה להצגת מבנה העמוד – התוכן יתווסף בהמשך."),
+    dict(_DEMO, slug="demo-consulting", title="מתי לפנות לייעוץ לפני שמפתחים", cat="ייעוץ", date="2026-09-25", modified="2026-09-25", read="4 דק׳ קריאה", desc="מאמר לדוגמה.", excerpt="מאמר לדוגמה להצגת מבנה העמוד – התוכן יתווסף בהמשך."),
+    dict(_DEMO, slug="demo-mvp", title="MVP או מוצר מלא – איך מחליטים", cat="פיתוח מוצר", date="2026-09-24", modified="2026-09-24", read="6 דק׳ קריאה", desc="מאמר לדוגמה.", excerpt="מאמר לדוגמה להצגת מבנה העמוד – התוכן יתווסף בהמשך."),
+]
+
 def blog_card(p):
     gi = POSTS.index(p) % len(BLOG_GRADS)
     return ('<a class="blog-card" data-cat="%s" href="/blog/%s"><div class="banner" style="background-image:url(%s)"></div>'
@@ -748,8 +757,8 @@ if _rest:
     grid_html = ('  <section class="wrap"><div class="blog-filters">%s</div><hr class="blog-div"><div class="blog-cards" id="bgrid">%s</div></section>'
       '<script>document.querySelectorAll(".bfilter").forEach(function(b){b.addEventListener("click",function(){document.querySelectorAll(".bfilter").forEach(function(x){x.classList.remove("active");});b.classList.add("active");var c=b.dataset.cat;document.querySelectorAll("#bgrid .blog-card").forEach(function(w){w.style.display=(c==="all"||w.dataset.cat===c)?"":"none";});});});</script>') % (_filt, _cards)
 blog_index_body = ('  <section class="wrap page-hero" style="padding-bottom:8px;"><span class="eyebrow"><span class="idx">//</span> <span class="ttl">בלוג</span></span>'
-  '<h1 class="s-head">הבלוג</h1>'
-  '<p class="s-lead">תובנות מעשיות על פיתוח מוצר, אתרים, אוטומציה וסוכני AI – לעסקים, לעצמאים וליזמים.</p></section>'
+  '<div class="blog-head"><h1 class="s-head">הבלוג</h1>'
+  '<p class="s-lead">תובנות מעשיות על פיתוח מוצר, אתרים, אוטומציה וסוכני AI – לעסקים, לעצמאים וליזמים.</p></div></section>'
   + featured_html + grid_html)
 page("/blog","blog.html","בלוג · תובנות על פיתוח, אוטומציה וסוכני AI | מיכל בר",
      "תובנות מעשיות על פיתוח מוצר ואתרים, אוטומציה וסוכני AI, וייעוץ טכנולוגי – לעסקים, לעצמאים וליזמים.",
