@@ -787,13 +787,15 @@ POSTS += [
 
 def blog_card(p):
     gi = POSTS.index(p) % len(BLOG_GRADS)
+    img = p.get("img", BLOG_IMAGES[gi])
     return ('<a class="blog-card" data-cat="%s" href="/blog/%s"><div class="banner" style="background-image:url(%s)"></div>'
       '<div class="bc-body"><span class="cat">%s</span><h3>%s</h3><p>%s</p>'
-      '<span class="meta">%s · %s</span></div></a>') % (p["cat"], p["slug"], BLOG_IMAGES[gi], p["cat"], p["title"], p["excerpt"], he_date(p["date"]), p["read"])
+      '<span class="meta">%s · %s</span></div></a>') % (p["cat"], p["slug"], img, p["cat"], p["title"], p["excerpt"], he_date(p["date"]), p["read"])
 
 def blog_post(p, all_posts):
     slug=p["slug"]; path="/blog/"+slug; full=SITE+path
     gi = POSTS.index(p) % len(BLOG_GRADS)
+    img = p.get("img", BLOG_IMAGES[gi])
     toc=[]; body=[]
     for i,(h2,html) in enumerate(p["sections"]):
         sid="s%d" % (i+1)
@@ -820,7 +822,7 @@ def blog_post(p, all_posts):
       '<aside class="post-side">%s%s</aside>'
       '<div class="post-main">%s<div class="prose post-body">%s</div>%s</div>'
       '</div>%s'
-      '</article></section>') % (p["cat"], p["title"], p["date"], he_date(p["date"]), p["read"], BLOG_IMAGES[gi], share, toc_html, tldr, "".join(body), AUTHOR_BOX, cp)
+      '</article></section>') % (p["cat"], p["title"], p["date"], he_date(p["date"]), p["read"], img, share, toc_html, tldr, "".join(body), AUTHOR_BOX, cp)
     schemas_extra=[]
     if p.get("faq"):
         fh, fs = faq_block(p["faq"]); body_html += fh; schemas_extra.append(fs)
@@ -837,6 +839,15 @@ def blog_post(p, all_posts):
          p["desc"], [("דף הבית","/"),("בלוג","/blog"),(p["title"],None)],
          body_html, [bp]+schemas_extra)
 
+BLOG_IMG_BY_SLUG = {
+    "cost-to-develop-website-or-app":"/assets/blog-1.svg",
+    "automation-and-ai-agents-getting-started":"/assets/blog-2.svg",
+    "when-to-consult-before-building":"/assets/blog-3.svg",
+    "mvp-vs-full-product":"/assets/blog-1.svg",
+    "wix-vs-custom-website":"/assets/blog-3.svg",
+}
+for _p in POSTS:
+    if _p["slug"] in BLOG_IMG_BY_SLUG: _p["img"] = BLOG_IMG_BY_SLUG[_p["slug"]]
 for _p in POSTS:
     blog_post(_p, POSTS)
 
@@ -845,7 +856,7 @@ featured_html = ('  <section class="wrap"><a class="blog-featured" href="/blog/%
   '<div class="feat-body"><span class="cat">%s</span><h2>%s</h2><p>%s</p>'
   '<span class="feat-btn">לקרוא עוד ←</span></div>'
   '<div class="feat-media" style="background-image:url(%s)"></div></a></section>') % (
-    _feat["slug"], _feat["cat"], _feat["title"], _feat["excerpt"], BLOG_IMAGES[0])
+    _feat["slug"], _feat["cat"], _feat["title"], _feat["excerpt"], _feat.get("img", BLOG_IMAGES[0]))
 _rest = POSTS[1:]
 grid_html = ""
 if _rest:
