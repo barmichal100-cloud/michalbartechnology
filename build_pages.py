@@ -705,27 +705,27 @@ def blog_post(p, all_posts):
         toc.append('<li><a href="#%s">%s</a></li>' % (sid,h2))
         body.append('<h2 id="%s">%s</h2>%s' % (sid,h2,html))
     et=quote(p["title"]); eu=quote(full)
-    share=('<div class="share"><span class="lbl">שיתוף:</span>'
+    share=('<div class="share"><span class="lbl">שיתוף</span><div class="share-icons">'
       '<a href="https://wa.me/?text=%s%%20%s" target="_blank" rel="noopener" aria-label="שיתוף בוואטסאפ">%s</a>'
       '<a href="https://www.linkedin.com/sharing/share-offsite/?url=%s" target="_blank" rel="noopener" aria-label="שיתוף בלינקדאין">%s</a>'
       '<a href="https://twitter.com/intent/tweet?url=%s&text=%s" target="_blank" rel="noopener" aria-label="שיתוף ב-X">%s</a>'
-      '<a href="mailto:?subject=%s&body=%s" aria-label="שיתוף במייל">%s</a>'
-      '<button type="button" class="copy-link" data-url="%s" aria-label="העתקת קישור">%s</button></div>') % (et,eu,SVG_WA,eu,SVG_LI,eu,et,SVG_X,et,eu,SVG_MAIL,full,SVG_LINK)
+      '<a href="https://mail.google.com/mail/?view=cm&fs=1&su=%s&body=%s" target="_blank" rel="noopener" aria-label="שיתוף במייל">%s</a>'
+      '<button type="button" class="copy-link" data-url="%s" aria-label="העתקת קישור">%s</button></div></div>') % (et,eu,SVG_WA,eu,SVG_LI,eu,et,SVG_X,et,eu,SVG_MAIL,full,SVG_LINK)
     tldr='<div class="tldr"><b>בקצרה</b><ul>%s</ul></div>' % ("".join("<li>%s</li>" % t for t in p["takeaways"]))
     toc_html='<nav class="toc"><b>במאמר הזה</b><ol>%s</ol></nav>' % ("".join(toc))
-    cp='<script>document.querySelectorAll(".copy-link").forEach(function(b){b.addEventListener("click",function(){try{navigator.clipboard.writeText(b.dataset.url);}catch(e){}var o=b.getAttribute("aria-label");b.setAttribute("aria-label","הקישור הועתק!");setTimeout(function(){b.setAttribute("aria-label",o);},1500);});});</script>'
+    cp='<script>document.querySelectorAll(".copy-link").forEach(function(b){b.addEventListener("click",function(){try{navigator.clipboard.writeText(b.dataset.url);}catch(e){}b.classList.add("copied");setTimeout(function(){b.classList.remove("copied");},1600);});});</script>'
     body_html=('  <section class="wrap"><article class="post">'
       '<div class="post-head">'
       '<span class="eyebrow"><span class="idx">//</span> <span class="ttl">%s</span></span>'
       '<h1 class="s-head">%s</h1>'
-      '<div class="byline"><span class="av" style="background:%s">מ</span> <b>מיכל בר</b> <span class="dot">·</span> <time datetime="%s">%s</time> <span class="dot">·</span> %s</div>'
+      '<div class="byline"><img class="av" src="/michal.jpg" alt="מיכל בר" /> <b>מיכל בר</b> <span class="dot">·</span> <time datetime="%s">%s</time> <span class="dot">·</span> %s</div>'
       '</div>'
       '<div class="post-banner" style="background-image:url(%s)"></div>'
       '<div class="post-layout">'
       '<aside class="post-side">%s%s</aside>'
       '<div class="post-main">%s<div class="prose post-body">%s</div>%s</div>'
       '</div>%s'
-      '</article></section>') % (p["cat"], p["title"], BLOG_GRADS[gi], p["date"], he_date(p["date"]), p["read"], BLOG_IMAGES[gi], share, toc_html, tldr, "".join(body), AUTHOR_BOX, cp)
+      '</article></section>') % (p["cat"], p["title"], p["date"], he_date(p["date"]), p["read"], BLOG_IMAGES[gi], share, toc_html, tldr, "".join(body), AUTHOR_BOX, cp)
     schemas_extra=[]
     if p.get("faq"):
         fh, fs = faq_block(p["faq"]); body_html += fh; schemas_extra.append(fs)
