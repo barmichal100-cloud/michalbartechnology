@@ -643,6 +643,7 @@ SVG_X = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d
 SVG_MAIL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>'
 SVG_LINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>'
 BLOG_GRADS = ["linear-gradient(135deg,#E3A45C,#C2683F)","linear-gradient(135deg,#C98A34,#A6543A)","linear-gradient(135deg,#D98E52,#8C4A3A)"]
+BLOG_IMAGES = ["/assets/blog-1.svg","/assets/blog-2.svg","/assets/blog-3.svg"]
 HE_MONTHS = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"]
 def he_date(iso):
     y,m,d = iso.split("-"); return "%d ב%s %s" % (int(d), HE_MONTHS[int(m)-1], y)
@@ -682,9 +683,9 @@ POSTS = [
 
 def blog_card(p):
     gi = POSTS.index(p) % len(BLOG_GRADS)
-    return ('<a class="blog-card" href="/blog/%s"><div class="banner" style="background:%s"></div>'
+    return ('<a class="blog-card" href="/blog/%s"><div class="banner" style="background-image:url(%s)"></div>'
       '<div class="bc-body"><span class="cat">%s</span><h3>%s</h3><p>%s</p>'
-      '<span class="meta">%s · %s</span></div></a>') % (p["slug"], BLOG_GRADS[gi], p["cat"], p["title"], p["excerpt"], he_date(p["date"]), p["read"])
+      '<span class="meta">%s · %s</span></div></a>') % (p["slug"], BLOG_IMAGES[gi], p["cat"], p["title"], p["excerpt"], he_date(p["date"]), p["read"])
 
 def blog_post(p, all_posts):
     slug=p["slug"]; path="/blog/"+slug; full=SITE+path
@@ -708,9 +709,9 @@ def blog_post(p, all_posts):
       '<span class="eyebrow"><span class="idx">//</span> <span class="ttl">%s</span></span>'
       '<h1 class="s-head">%s</h1>'
       '<div class="byline"><span class="av" style="background:%s">מ</span> <b>מיכל בר</b> <span class="dot">·</span> <time datetime="%s">%s</time> <span class="dot">·</span> %s</div>'
-      '<div class="post-banner" style="background:%s"><span class="mono">&lt;/&gt;</span></div>'
+      '<div class="post-banner" style="background-image:url(%s)"></div>'
       '%s%s%s<div class="prose post-body">%s</div>%s%s'
-      '</article></section>') % (p["cat"], p["title"], BLOG_GRADS[gi], p["date"], he_date(p["date"]), p["read"], BLOG_GRADS[gi], share, tldr, toc_html, "".join(body), AUTHOR_BOX, cp)
+      '</article></section>') % (p["cat"], p["title"], BLOG_GRADS[gi], p["date"], he_date(p["date"]), p["read"], BLOG_IMAGES[gi], share, tldr, toc_html, "".join(body), AUTHOR_BOX, cp)
     schemas_extra=[]
     if p.get("faq"):
         fh, fs = faq_block(p["faq"]); body_html += fh; schemas_extra.append(fs)

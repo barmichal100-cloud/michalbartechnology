@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" role="img" aria-label="אבטחת מידע ובינה מלאכותית">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2A1A11"/><stop offset="1" stop-color="#43291A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.68" cy="0.32" r="0.75">
+      <stop offset="0" stop-color="#E3A45C" stop-opacity="0.22"/><stop offset="1" stop-color="#E3A45C" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.6" fill="#E3A45C" opacity="0.10"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="420" fill="url(#bg)"/>
+  <rect width="1200" height="420" fill="url(#dots)"/>
+  <rect width="1200" height="420" fill="url(#glow)"/>
+  <!-- circuit lines feeding the shield -->
+  <g stroke="#E3A45C" stroke-width="1.6" fill="none" opacity="0.45">
+    <path d="M60,120 H150 V150"/><path d="M60,300 H140 V250"/><path d="M40,210 H120"/>
+    <circle cx="60" cy="120" r="4" fill="#E3A45C"/><circle cx="60" cy="300" r="4" fill="#E3A45C"/><circle cx="40" cy="210" r="4" fill="#E3A45C"/>
+  </g>
+  <!-- shield with keyhole -->
+  <g transform="translate(150,78)">
+    <path d="M130,8 L24,50 V150 C24,224 130,262 130,262 C130,262 236,224 236,150 V50 Z" fill="#3A2417" stroke="#E3A45C" stroke-width="2.4"/>
+    <path d="M130,8 L24,50 V150 C24,224 130,262 130,262" fill="none" stroke="#F3E9D9" stroke-width="1.2" opacity="0.25"/>
+    <circle cx="130" cy="120" r="24" fill="#E3A45C"/>
+    <rect x="121" y="134" width="18" height="46" rx="8" fill="#E3A45C"/>
+    <circle cx="130" cy="120" r="10" fill="#3A2417"/>
+  </g>
+  <!-- AI neural hub (right) -->
+  <g transform="translate(820,210)">
+    <g stroke="#E3A45C" stroke-width="1.6" opacity="0.5">
+      <line x1="0" y1="0" x2="120" y2="-90"/><line x1="0" y1="0" x2="150" y2="10"/>
+      <line x1="0" y1="0" x2="110" y2="100"/><line x1="0" y1="0" x2="-30" y2="-120"/>
+      <line x1="0" y1="0" x2="-110" y2="70"/>
+    </g>
+    <g fill="#E3A45C">
+      <circle cx="120" cy="-90" r="8"/><circle cx="150" cy="10" r="10"/>
+      <circle cx="110" cy="100" r="7"/><circle cx="-30" cy="-120" r="7"/><circle cx="-110" cy="70" r="6"/>
+    </g>
+    <circle cx="0" cy="0" r="22" fill="#C2683F"/>
+    <circle cx="0" cy="0" r="34" fill="none" stroke="#E3A45C" stroke-width="1.4" opacity="0.5"/>
+    <!-- spark -->
+    <path d="M150,-140 l6,16 l16,6 l-16,6 l-6,16 l-6,-16 l-16,-6 l16,-6 Z" fill="#F3E9D9" opacity="0.8"/>
+  </g>
+</svg>
