@@ -715,12 +715,17 @@ def blog_post(p, all_posts):
     toc_html='<nav class="toc"><b>במאמר הזה</b><ol>%s</ol></nav>' % ("".join(toc))
     cp='<script>document.querySelectorAll(".copy-link").forEach(function(b){b.addEventListener("click",function(){try{navigator.clipboard.writeText(b.dataset.url);}catch(e){}var o=b.getAttribute("aria-label");b.setAttribute("aria-label","הקישור הועתק!");setTimeout(function(){b.setAttribute("aria-label",o);},1500);});});</script>'
     body_html=('  <section class="wrap"><article class="post">'
+      '<div class="post-head">'
       '<span class="eyebrow"><span class="idx">//</span> <span class="ttl">%s</span></span>'
       '<h1 class="s-head">%s</h1>'
       '<div class="byline"><span class="av" style="background:%s">מ</span> <b>מיכל בר</b> <span class="dot">·</span> <time datetime="%s">%s</time> <span class="dot">·</span> %s</div>'
+      '</div>'
       '<div class="post-banner" style="background-image:url(%s)"></div>'
-      '%s%s%s<div class="prose post-body">%s</div>%s%s'
-      '</article></section>') % (p["cat"], p["title"], BLOG_GRADS[gi], p["date"], he_date(p["date"]), p["read"], BLOG_IMAGES[gi], share, tldr, toc_html, "".join(body), AUTHOR_BOX, cp)
+      '<div class="post-layout">'
+      '<aside class="post-side">%s%s</aside>'
+      '<div class="post-main">%s<div class="prose post-body">%s</div>%s</div>'
+      '</div>%s'
+      '</article></section>') % (p["cat"], p["title"], BLOG_GRADS[gi], p["date"], he_date(p["date"]), p["read"], BLOG_IMAGES[gi], share, toc_html, tldr, "".join(body), AUTHOR_BOX, cp)
     schemas_extra=[]
     if p.get("faq"):
         fh, fs = faq_block(p["faq"]); body_html += fh; schemas_extra.append(fs)
