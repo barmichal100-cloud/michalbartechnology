@@ -402,6 +402,22 @@ a.blog-card:hover{border-color:var(--accent);transform:translateY(-4px);}
 .author-box .ab-links{margin-top:12px;display:flex;gap:16px;}
 .author-box .ab-links a{color:var(--accent);font-weight:600;font-size:14px;text-decoration:none;}
 @media(max-width:860px){ .blog-cards{grid-template-columns:1fr;} .author-box{flex-direction:column;} }
+/* blog index: featured + filters */
+.blog-featured{display:grid;grid-template-columns:1.05fr .95fr;background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:inherit;transition:border-color .25s;margin-bottom:8px;}
+.blog-featured:hover{border-color:var(--accent);}
+.feat-body{padding:36px 34px;display:flex;flex-direction:column;justify-content:center;}
+.feat-body .cat{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--accent);}
+.feat-body h2{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);font-weight:700;line-height:1.15;margin-top:10px;}
+.feat-body p{color:var(--muted);font-size:15.5px;margin-top:12px;}
+.feat-btn{align-self:flex-start;margin-top:22px;background:rgba(227,164,92,.12);border:1px solid rgba(227,164,92,.55);color:var(--ink);font-weight:600;font-size:15px;padding:11px 22px;border-radius:11px;transition:background .2s,border-color .2s;}
+.blog-featured:hover .feat-btn{background:rgba(227,164,92,.22);border-color:var(--accent);}
+.feat-media{background-size:cover;background-position:center;background-repeat:no-repeat;min-height:300px;background-color:#2A1A11;}
+.blog-filters{display:flex;flex-wrap:wrap;gap:10px;}
+.bfilter{padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--soft);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:border-color .2s,color .2s,background .2s;}
+.bfilter:hover{border-color:var(--accent);color:var(--ink);}
+.bfilter.active{background:var(--accent);color:#241307;border-color:var(--accent);}
+.blog-div{border:0;border-top:1px solid var(--line);margin:20px 0 30px;}
+@media(max-width:760px){ .blog-featured{grid-template-columns:1fr;} .feat-media{order:-1;min-height:200px;} }
 
 
 /* ── new homepage hero (concrete headline + single CTA) ── */

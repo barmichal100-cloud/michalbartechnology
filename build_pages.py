@@ -683,9 +683,9 @@ POSTS = [
 
 def blog_card(p):
     gi = POSTS.index(p) % len(BLOG_GRADS)
-    return ('<a class="blog-card" href="/blog/%s"><div class="banner" style="background-image:url(%s)"></div>'
+    return ('<a class="blog-card" data-cat="%s" href="/blog/%s"><div class="banner" style="background-image:url(%s)"></div>'
       '<div class="bc-body"><span class="cat">%s</span><h3>%s</h3><p>%s</p>'
-      '<span class="meta">%s · %s</span></div></a>') % (p["slug"], BLOG_IMAGES[gi], p["cat"], p["title"], p["excerpt"], he_date(p["date"]), p["read"])
+      '<span class="meta">%s · %s</span></div></a>') % (p["cat"], p["slug"], BLOG_IMAGES[gi], p["cat"], p["title"], p["excerpt"], he_date(p["date"]), p["read"])
 
 def blog_post(p, all_posts):
     slug=p["slug"]; path="/blog/"+slug; full=SITE+path
@@ -731,10 +731,26 @@ def blog_post(p, all_posts):
 for _p in POSTS:
     blog_post(_p, POSTS)
 
-blog_index_body = ('  <section class="wrap page-hero"><span class="eyebrow"><span class="idx">//</span> <span class="ttl">בלוג</span></span>'
+_feat = POSTS[0]
+featured_html = ('  <section class="wrap"><a class="blog-featured" href="/blog/%s">'
+  '<div class="feat-body"><span class="cat">%s</span><h2>%s</h2><p>%s</p>'
+  '<span class="feat-btn">לקרוא עוד ←</span></div>'
+  '<div class="feat-media" style="background-image:url(%s)"></div></a></section>') % (
+    _feat["slug"], _feat["cat"], _feat["title"], _feat["excerpt"], BLOG_IMAGES[0])
+_rest = POSTS[1:]
+grid_html = ""
+if _rest:
+    _cats = []
+    for _q in _rest:
+        if _q["cat"] not in _cats: _cats.append(_q["cat"])
+    _filt = '<button class="bfilter active" data-cat="all">הכל</button>' + "".join('<button class="bfilter" data-cat="%s">%s</button>' % (c,c) for c in _cats)
+    _cards = "".join(blog_card(_q) for _q in _rest)
+    grid_html = ('  <section class="wrap"><div class="blog-filters">%s</div><hr class="blog-div"><div class="blog-cards" id="bgrid">%s</div></section>'
+      '<script>document.querySelectorAll(".bfilter").forEach(function(b){b.addEventListener("click",function(){document.querySelectorAll(".bfilter").forEach(function(x){x.classList.remove("active");});b.classList.add("active");var c=b.dataset.cat;document.querySelectorAll("#bgrid .blog-card").forEach(function(w){w.style.display=(c==="all"||w.dataset.cat===c)?"":"none";});});});</script>') % (_filt, _cards)
+blog_index_body = ('  <section class="wrap page-hero" style="padding-bottom:8px;"><span class="eyebrow"><span class="idx">//</span> <span class="ttl">בלוג</span></span>'
   '<h1 class="s-head">הבלוג</h1>'
   '<p class="s-lead">תובנות מעשיות על פיתוח מוצר, אתרים, אוטומציה וסוכני AI – לעסקים, לעצמאים וליזמים.</p></section>'
-  '  <section class="wrap"><div class="blog-cards">%s</div></section>') % ("".join(blog_card(p) for p in POSTS))
+  + featured_html + grid_html)
 page("/blog","blog.html","בלוג · תובנות על פיתוח, אוטומציה וסוכני AI | מיכל בר",
      "תובנות מעשיות על פיתוח מוצר ואתרים, אוטומציה וסוכני AI, וייעוץ טכנולוגי – לעסקים, לעצמאים וליזמים.",
      [("דף הבית","/"),("בלוג",None)],
