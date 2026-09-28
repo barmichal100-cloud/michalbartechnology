@@ -1063,7 +1063,7 @@ CONTACT_GRID_EN = '''  <section class="wrap">
 CTA_EN = '''  <section class="wrap page-hero" style="text-align:center;">
     <span class="eyebrow" style="justify-content:center;"><span class="idx">//</span> <span class="ttl">Contact</span></span>
     <h2 class="s-head" style="margin-inline:auto;">Have a challenge, an idea, or a project?</h2>
-    <p class="s-lead" style="margin-inline:auto;">A free, no-obligation consultation - I'll get back to you within 24 hours.</p>
+    <p class="s-lead" style="margin-inline:auto;">A free, no-obligation consultation - I'll get back to you within 24 hours. Based in Israel and available for calls during US morning hours (Eastern through Pacific).</p>
   </section>
 ''' + CONTACT_GRID_EN
 
@@ -1291,7 +1291,7 @@ page("/projects","projects.html",
 contact_body_en = '''  <section class="wrap page-hero" style="text-align:center;">
     <span class="eyebrow" style="justify-content:center;"><span class="idx">//</span> <span class="ttl">Contact</span></span>
     <h1 class="s-head" style="margin-inline:auto;">Have a challenge, an idea, or a project?</h1>
-    <p class="s-lead" style="margin-inline:auto;">A free, no-obligation consultation - I'll get back to you within 24 hours.</p>
+    <p class="s-lead" style="margin-inline:auto;">A free, no-obligation consultation - I'll get back to you within 24 hours. Based in Israel and available for calls during US morning hours (Eastern through Pacific).</p>
   </section>
 ''' + CONTACT_GRID_EN
 page("/contact","contact.html",
@@ -1379,6 +1379,7 @@ faq_groups_en = [
         ("Why build with you instead of just building it myself with AI, or cheaply?", "Today anyone can build something with a few AI prompts - but you usually get a generic product that looks like everyone else's and doesn't really work for the business. The difference is experience and business perspective: 20+ years in hi-tech, an understanding of what actually needs to be built and how, and a product tailored exactly to you that sets you apart and delivers real value - not another template."),
         ("Who do you work with?", "Businesses, entrepreneurs and organizations that need to translate a need into a technological solution - from early-stage startups to established companies."),
         ("Can we work remotely / from anywhere?", "Yes. I work with clients everywhere, and most of the process runs remotely - calls, spec and ongoing updates online, with in-person meetings as needed."),
+        ("Do our time zones work? What are your hours?", "I'm based in Israel and work with US clients remotely. I keep hours that overlap with the US business day and I'm available for calls and meetings during US morning hours (Eastern through Pacific). Tell me your time zone and we'll find a time that works."),
         ("How long does a project take?", "It depends on scope. A short spec can take weeks, and a full product - months. I'm extremely hard-working and fast - but without compromising on quality. After the intro call and spec we can give a precise timeline."),
         ("How do you price?", "By the scope and nature of the project. After a short intro call you'll get a clear quote, broken into milestones."),
         ("What happens after launch? Is there support?", "I don't disappear after go-live. Ongoing support and guidance is available - maintenance, improvements and continued development - as a monthly package as needed."),
