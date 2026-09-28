@@ -219,11 +219,12 @@ def crumbs(trail, lang="he"):
     schema = {"@type":"BreadcrumbList","itemListElement":items}
     return html, schema
 
-def faq_block(pairs):
+def faq_block(pairs, lang="he"):
+    heading = "Frequently asked questions" if lang == "en" else "שאלות נפוצות"
     rows = "\n".join(
         f'    <details><summary>{q}</summary><p class="a">{a}</p></details>' for q,a in pairs)
     html = f'''  <section class="wrap" style="padding-top:14px;padding-bottom:20px;">
-    <h2 class="s-head" style="font-size:clamp(26px,4vw,38px);">שאלות נפוצות</h2>
+    <h2 class="s-head" style="font-size:clamp(26px,4vw,38px);">{heading}</h2>
     <div class="faq">
 {rows}
     </div>
@@ -428,7 +429,7 @@ def service_page(path, filename, title, desc, h1, lead, intro_paras, includes, f
     </div>
   </section>
 '''
-    fh, fs = faq_block(faq_pairs)
+    fh, fs = faq_block(faq_pairs, lang)
     others = [(p, n) for p, n in svc_list if p != path]
     rel = "".join(f'<a href="{pfx}{p}"><span>{n}</span> <span class="ar">&#8592;</span></a>' for p, n in others)
     related = f'''  <section class="wrap">
@@ -939,7 +940,7 @@ def blog_post(p, all_posts, lang="he"):
       '</article></section>') % (p["cat"], p["title"], L["alt"], L["byline"], p["date"], fmt_date(p["date"], lang), p["read"], img, share, toc_html, tldr, "".join(body), author, cp)
     schemas_extra=[]
     if p.get("faq"):
-        fh, fs = faq_block(p["faq"]); body_html += fh; schemas_extra.append(fs)
+        fh, fs = faq_block(p["faq"], lang); body_html += fh; schemas_extra.append(fs)
     others=[q for q in all_posts if q["slug"]!=slug][:3]
     if others:
         cards="".join(blog_card(q, lang) for q in others)
@@ -1174,7 +1175,7 @@ faq_html_en, faq_s_en = faq_block([
     ("How do you price?", "By the scope and nature of the project. After a short intro call you'll get a clear quote, broken into milestones."),
     ("How fast do I get a quote?", "After a short intro call (and sometimes a brief spec) you'll get a clear quote broken into milestones - usually within a few days."),
     ("Can we work remotely / from anywhere?", "Yes. I work with clients everywhere, and most of the process runs remotely - calls, spec and ongoing updates online, with in-person meetings as needed."),
-])
+], lang="en")
 page("/services","services.html",
      "Services · Development, Automation & AI Agents | Michal Bar",
      "Three service areas - product, web & app development; automation & AI agents; and tech consulting. End to end, with personal guidance.",
