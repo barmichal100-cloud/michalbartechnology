@@ -489,6 +489,7 @@ html[lang="en"] h1,
 html[lang="en"] h2{ max-width:26ch; }
 html[lang="en"] .footer-col a{ text-align:left; }
 html[lang="en"] .about-grid{ align-items:start; }
+html[lang="en"] .contact-form{ text-align:left; }
 .lang-switch{
   display:inline-flex;align-items:center;justify-content:center;
   border:1px solid var(--line2);color:var(--muted);
